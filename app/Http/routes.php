@@ -23,3 +23,7 @@ Route::POST('addPost','ManageAdminController@addPost');
 Route::POST('editPost','ManageAdminController@editPost');
 Route::POST('deletePost','ManageAdminController@deletePost');
 Route::get('jurusan','JurusanController@index');
+Route::get('jurusan/json','JurusanController@jurusantb')->name('jurusan/json');
+Route::POST('addJurusan','JurusanController@addJurusan');
+Route::POST('editJurusan','JurusanController@editJurusan');
+Route::POST('deleteJurusan','JurusanController@deleteJurusan');

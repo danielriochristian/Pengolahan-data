@@ -122,8 +122,8 @@
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="admin"><i class="fa fa-book"></i> <span>Manage User</span></a></li>
-        <li><a href="jurusan"><i class="fa fa-book"></i> <span>Manage Jurusan</span></a></li>
+        <li><a href="admin"><i class="fa fa-users"></i> <span>Manage User</span></a></li>
+        <li><a href="jurusan"><i class="fa fa-pencil-square-o"></i> <span>Manage Jurusan</span></a></li>
 
       </ul>
     </section>
@@ -147,6 +147,7 @@
     <!-- Main content -->
     <section class="content">
       @yield('admin')
+      @yield('jurusan')
 
       <!-- /.row (main row) -->
 
