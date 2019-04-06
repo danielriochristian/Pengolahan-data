@@ -15,3 +15,11 @@ Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
 Route::get('dashboard','AuthController@getRoot');
 Route::get('mahasiswa','AuthController@mahasiswa');
+
+//superadmin
+Route::get('user/json','ManageAdminController@admintb')->name('user/json');
+Route::get('admin','ManageAdminController@index');
+Route::POST('addPost','ManageAdminController@addPost');
+Route::POST('editPost','ManageAdminController@editPost');
+Route::POST('deletePost','ManageAdminController@deletePost');
+Route::get('jurusan','JurusanController@index');

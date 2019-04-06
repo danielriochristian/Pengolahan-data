@@ -9,7 +9,6 @@ use App\http\Requests;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
-use DataTables;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
@@ -24,7 +23,7 @@ class AuthController extends Controller
   }
   public function getRoot() {
     if (Auth::User()->roles_id == 1) {
-    return 'super admin';
+    return redirect('admin');
     } elseif (Auth::User()->roles_id == 2) {
     return view('partial.master');
   }else {
