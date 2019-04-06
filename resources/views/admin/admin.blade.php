@@ -112,7 +112,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Master</span></a></li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Mahasiswa</span></a></li>
+        <li><a href="/mahasiswa"><i class="fa fa-book"></i> <span>Mahasiswa</span></a></li>
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Pilihan</span></a></li>
 
       </ul>
@@ -137,6 +137,7 @@
     <!-- Main content -->
     <section class="content">
       @yield('master')
+      @yield('mahasiswa')
 
       <!-- /.row (main row) -->
 
