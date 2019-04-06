@@ -54,7 +54,7 @@
       <h3 class="box-title">Form Isian</h3>
     </div>
   <form role="form">
-    <form id="regForm" action="/action_page.php">
+    <form id="regForm" action="">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
@@ -65,7 +65,7 @@
       <p><input type="text" class="form-control" placeholder="AH12311"></p>
 
     <label>Nama Lengkap</label>
-      <p><input type="text" class="form-control" placeholder="Jhon Tor"></p>
+      <p><input type="text" class="form-control" placeholder="Jhon Doe"></p>
 
     <label>Tempat/Tanggal Lahir</label>
       <p><input type="text" class="form-control" placeholder="Jakarta/20 Juni 1998"></p>
@@ -125,23 +125,23 @@
 
         <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+          <input type="number" class="form-control" id="bhsingx1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+          <input type="number" class="form-control" id="mtkx1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+          <input type="number" class="form-control" id="fisekx1" placeholder="">
         </div>
-        <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
+        <label for="inputEmail3" class="col-sm-2 control-label" >Biologi/Geografi</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+          <input type="number" class="form-control" id="bigeox1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="">
+          <input type="number" class="form-control" id="kimsox1" placeholder="">
         </div>
 
     <label>Kelas 10 Semester 2</label><br>
@@ -269,7 +269,7 @@
 
 
     <label>Total Nilai 5 semester</label>
-    <input type="text" class="form-control" >
+    <output id="total" type="number" class="form-control"></output>
 
 
     <label>Rata - rata</label>
@@ -315,6 +315,31 @@
 
     <label>Telpon Sekolah </label>
     <input type="text" class="form-control" placeholder="">
+
+    <label>Fax Sekolah</label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Nilai TPA</label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Nilai Bahasa Inggris </label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Catatan</label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Titipan dari Dosen/Staff</label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Hubungan dengan Penitip </label>
+    <input type="text" class="form-control" placeholder="">
+
+    <label>Tanggal Seleksi </label>
+    <input type="date" class="form-control" placeholder="">
+
+    <label>Shift Ujian Seleksi</label>
+    <input type="text" class="form-control" placeholder="">
+
 
 
 
@@ -409,6 +434,15 @@
     //... and adds the "active" class on the current step:
     x[n].className += " active";
   }
+  function penjumlahan(){
+  var bhsingx1 = document.getElementById('bhsingx1').value;
+  var mtkx1 = document.getElementById('mtkx1').value;
+  var fisekx1 = document.getElementById('fisekx1').value;
+  var bigeox1 = document.getElementById('bigeox1').value;
+  var kimsox1 = document.getElementById('kimsox1').value;
+  var total = parseInt(bhsingx1) + parseInt(mtkx1) + parseInt(fisekx1) + parseInt(bigeox1) + parseInt(kimsox1);
+  document.getElementById('total').innerHTML = total;
+}
   </script>
 
   </body>

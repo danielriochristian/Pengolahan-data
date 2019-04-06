@@ -111,11 +111,18 @@
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="/dashboard"><i class="fa fa-book"></i> <span>Master</span></a></li>
-        <li><a href="/mahasiswa"><i class="fa fa-book"></i> <span>Mahasiswa</span></a></li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Pilihan</span></a></li>
-
-      </ul>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Master</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/mahasiswa"><i class="fa fa-circle-o"></i>Mahasiswa</a></li>
+            <li><a href="/pilihan"><i class="fa fa-circle-o"></i>Pilihan</a></li>
+          </ul>
+        </li>
     </section>
 
   </aside>
@@ -138,6 +145,7 @@
     <section class="content">
       @yield('master')
       @yield('mahasiswa')
+      @yield('pilihan')
 
       <!-- /.row (main row) -->
 

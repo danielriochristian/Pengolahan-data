@@ -15,6 +15,7 @@ Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
 Route::get('dashboard','AuthController@getRoot');
 Route::get('mahasiswa','AuthController@mahasiswa');
+Route::get('pilihan','JurusanContoller@index');
 
 //superadmin
 Route::get('user/json','ManageAdminController@admintb')->name('user/json');
