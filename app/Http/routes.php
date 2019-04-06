@@ -15,7 +15,7 @@ Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
 Route::get('dashboard','AuthController@getRoot');
 Route::get('mahasiswa','AuthController@mahasiswa');
-Route::get('pilihan','JurusanContoller@index');
+Route::get('pilihan','PilihanContoller@index');
 
 //superadmin
 Route::get('user/json','ManageAdminController@admintb')->name('user/json');
@@ -24,3 +24,7 @@ Route::POST('addPost','ManageAdminController@addPost');
 Route::POST('editPost','ManageAdminController@editPost');
 Route::POST('deletePost','ManageAdminController@deletePost');
 Route::get('jurusan','JurusanController@index');
+Route::get('jurusan/json','JurusanController@jurusantb')->name('jurusan/json');
+Route::POST('addJurusan','JurusanController@addJurusan');
+Route::POST('editJurusan','JurusanController@editJurusan');
+Route::POST('deleteJurusan','JurusanController@deleteJurusan');
