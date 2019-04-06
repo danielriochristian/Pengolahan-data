@@ -30,14 +30,5 @@ class AuthController extends Controller
       return 'hai pengguna! saat ini belom ada view nya karena yg buat males nambahin :V buat logout ketik /logout di akhiran lalu enter';
     }
   }
-  public function mahasiswa() {
-    if (Auth::User()->roles_id == 1) {
-    return 'super admin';
-    } elseif (Auth::User()->roles_id == 2) {
-    return view('partial.mahasiswa');
-  }else {
-      return 'hai pengguna! saat ini belom ada view nya karena yg buat males nambahin :V buat logout ketik /logout di akhiran lalu enter';
-    }
-  }
 
 }
