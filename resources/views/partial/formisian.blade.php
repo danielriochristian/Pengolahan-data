@@ -28,9 +28,10 @@
             <tbody>
               @foreach($manage as $m)
               <td> {{ $m -> id}}</td>
-              <td> {{ $m -> nama}}</td>
-              <td> {{ $m -> nilai}}</td>
-              @endforeach
+              <td> {{ $m -> nama_lengkap}}</td>
+
+              <td> <a href="/formisian/{{$m -> id}}/edit"> Edit </a></td>
+                   @endforeach
             </tbody>
           </table>
           </div>

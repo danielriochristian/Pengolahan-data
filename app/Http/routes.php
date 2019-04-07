@@ -18,6 +18,7 @@ Route::get('dashboard','AuthController@getRoot');
 Route::get('mahasiswa','AuthController@mahasiswa');
 Route::get('formisian','FormIsianController@index');
 Route::get('formisian/{id}/edit','FormIsianController@edit');
+Route::put('formisian/{id}','FormIsianController@post');
 
 
 
