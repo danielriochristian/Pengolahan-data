@@ -120,7 +120,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/dashboard"><i class="fa fa-circle-o"></i>Mahasiswa</a></li>
-            <li><a href="/pilihan"><i class="fa fa-circle-o"></i>Pilihan</a></li>
+            
           </ul>
         </li>
     </section>

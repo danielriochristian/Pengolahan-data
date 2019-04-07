@@ -14,18 +14,7 @@
   .tab {
     display: none;
   }
-  button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer;
-  }
-  button:hover {
-    opacity: 0.8;
-  }
+
   #prevBtn {
     background-color: #bbbbbb;
   }
@@ -65,10 +54,13 @@
       <p><input type="text" class="form-control" placeholder="AH12311"></p>
 
     <label>Nama Lengkap</label>
-      <p><input type="text" class="form-control" placeholder="Jhon Doe"></p>
+      <p><input type="text" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe"></p>
 
-    <label>Tempat/Tanggal Lahir</label>
-      <p><input type="text" class="form-control" placeholder="Jakarta/20 Juni 1998"></p>
+    <label>Tempat Lahir</label>
+      <p><input type="text" class="form-control" placeholder="Jakarta"></p>
+
+    <label>Tanggal Lahir</label>
+      <p><input type="date" class="form-control" placeholder="17 November 1998"></p>
 
     <label>Telpon Rumah</label>
       <p><input type="text" class="form-control" placeholder="02112341"></p>
@@ -80,7 +72,7 @@
       <p><input type="text" class="form-control" placeholder="08787121xxx"></p>
 
     <label>Alamat Rumah Siswa</label>
-      <p><input type="text" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
+      <p><input type="text" style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
 
     <label>Nama Jalan & No Rumah</label>
       <p><input type="text" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
@@ -340,6 +332,22 @@
     <label>Shift Ujian Seleksi</label>
     <input type="text" class="form-control" placeholder="">
 
+    <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
+
+    <label>Pilihan 1</label>
+    <select name="jurusan" id="jurusan" class="form-control">
+      @foreach ($jurusan as $jur)
+        <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
+      @endforeach
+    </select>
+
+
+    <label>Pilihan 2</label>
+    <select name="jurusan" id="jurusan" class="form-control">
+      @foreach ($jurusan as $jur)
+        <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
+      @endforeach
+    </select>
 
 
 
@@ -348,8 +356,8 @@
 
     <div style="overflow:auto;">
       <div style="float:right;">
-        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="btn btn-sm btn-default btn-flat pull-left" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
       </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
