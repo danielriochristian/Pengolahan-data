@@ -141,30 +141,34 @@
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
         <div class="col-sm-10">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="kimsox1" placeholder="">
+=======
+          <input type="text" class="form-control" onchange="jumlahkan()" id="kimsox1" placeholder="">
+>>>>>>> 99fd4d291cfc19012bcd530025f001f15af453d6
         </div>
 
     <label>Kelas 10 Semester 2</label><br>
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bhsingx2" >
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="mtkx2" >
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="fisekx2" >
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bigeox2" >
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" onchange="jumlahkan()" id="kimsox2" >
     </div>
 
     <label>Kelas 11 Semester 1</label><br>
@@ -172,31 +176,31 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bhsingxi1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="mtkxi1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="fisekxi1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bigeoxi1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" onchange="jumlahkan()" id="kimsoxi1" >
     </div>
 
 
@@ -206,31 +210,31 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bhsingxi2" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="mtkxi2" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="fisekxi2" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bigeoxi2" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" onchange="jumlahkan()" id="kimsoxi2" >
     </div>
 
 
@@ -240,40 +244,40 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bhsingxii1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="mtkxii1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="fisekxii1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" id="bigeoxii1" >
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" >
+      <input type="text" class="form-control" onchange="jumlahkan()" id="kimsoxii1" >
     </div>
 
 
     <label>Total Nilai 5 semester</label>
-    <output id="total" type="number" class="form-control"></output>
+    <output id="total" type="text" class="form-control"></output>
 
 
     <label>Rata - rata</label>
-    <input type="text" class="form-control" >
+    <output id="rerata" type="text" class="form-control"></output>
 
 
     <label>Thn Lulus SMA/MA/SMK *</label>
@@ -434,14 +438,44 @@
     //... and adds the "active" class on the current step:
     x[n].className += " active";
   }
-  function penjumlahan(){
+  function jumlahkan(){
   var bhsingx1 = document.getElementById('bhsingx1').value;
   var mtkx1 = document.getElementById('mtkx1').value;
   var fisekx1 = document.getElementById('fisekx1').value;
   var bigeox1 = document.getElementById('bigeox1').value;
   var kimsox1 = document.getElementById('kimsox1').value;
-  var total = parseInt(bhsingx1) + parseInt(mtkx1) + parseInt(fisekx1) + parseInt(bigeox1) + parseInt(kimsox1);
+
+  var bhsingx2 = document.getElementById('bhsingx2').value;
+  var mtkx2 = document.getElementById('mtkx2').value;
+  var fisekx2 = document.getElementById('fisekx2').value;
+  var bigeox2 = document.getElementById('bigeox2').value;
+  var kimsox2 = document.getElementById('kimsox2').value;
+
+  var bhsingxi1 = document.getElementById('bhsingxi1').value;
+  var mtkxi1 = document.getElementById('mtkxi1').value;
+  var fisekxi1 = document.getElementById('fisekxi1').value;
+  var bigeoxi1 = document.getElementById('bigeoxi1').value;
+  var kimsoxi1 = document.getElementById('kimsoxi1').value;
+
+  var bhsingxi2 = document.getElementById('bhsingxi2').value;
+  var mtkxi2 = document.getElementById('mtkxi2').value;
+  var fisekxi2 = document.getElementById('fisekxi2').value;
+  var bigeoxi2 = document.getElementById('bigeoxi2').value;
+  var kimsoxi2 = document.getElementById('kimsoxi2').value;
+
+  var bhsingxii1 = document.getElementById('bhsingxii1').value;
+  var mtkxii1 = document.getElementById('mtkxii1').value;
+  var fisekxii1 = document.getElementById('fisekxii1').value;
+  var bigeoxii1 = document.getElementById('bigeoxii1').value;
+  var kimsoxii1 = document.getElementById('kimsoxii1').value;
+  var total = parseInt(bhsingx1) + parseInt(mtkx1) + parseInt(fisekx1) + parseInt(bigeox1) + parseInt(kimsox1) +
+  parseInt(bhsingx2) + parseInt(mtkx2) + parseInt(fisekx2) + parseInt(bigeox2) + parseInt(kimsox2) +
+  parseInt(bhsingxi1) + parseInt(mtkxi1) + parseInt(fisekxi1) + parseInt(bigeoxi1) + parseInt(kimsoxi1) +
+  parseInt(bhsingxi2) + parseInt(mtkxi2) + parseInt(fisekxi2) + parseInt(bigeoxi2) + parseInt(kimsoxi2) +
+  parseInt(bhsingxii1) + parseInt(mtkxii1) + parseInt(fisekxii1) + parseInt(bigeoxii1) + parseInt(kimsoxii1);
+  var rerata = parseInt(total)/25;
   document.getElementById('total').innerHTML = total;
+  document.getElementById('rerata').innerHTML = rerata;
 }
   </script>
 
