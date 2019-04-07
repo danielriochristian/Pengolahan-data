@@ -133,7 +133,11 @@
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
         <div class="col-sm-10">
+<<<<<<< HEAD
+          <input type="text" class="form-control" id="kimsox1" placeholder="">
+=======
           <input type="text" class="form-control" onchange="jumlahkan()" id="kimsox1" placeholder="">
+>>>>>>> 99fd4d291cfc19012bcd530025f001f15af453d6
         </div>
 
     <label>Kelas 10 Semester 2</label><br>
