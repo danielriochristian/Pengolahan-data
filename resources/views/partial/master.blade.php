@@ -125,23 +125,23 @@
 
         <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="bhsingx1" placeholder="">
+          <input type="text" class="form-control" id="bhsingx1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="mtkx1" placeholder="">
+          <input type="text" class="form-control" id="mtkx1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="fisekx1" placeholder="">
+          <input type="text" class="form-control" id="fisekx1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label" >Biologi/Geografi</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="bigeox1" placeholder="">
+          <input type="text" class="form-control" id="bigeox1" placeholder="">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="kimsox1" placeholder="">
+          <input type="text" class="form-control" id="kimsox1" placeholder="">
         </div>
 
     <label>Kelas 10 Semester 2</label><br>
