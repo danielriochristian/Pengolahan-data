@@ -13,8 +13,11 @@
 
 Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
+Route::post('logout','LoginController@logout');
 Route::get('dashboard','AuthController@getRoot');
-Route::get('pilihan','PilihanContoller@index');
+Route::get('mahasiswa','AuthController@mahasiswa');
+
+
 
 //superadmin
 Route::get('user/json','ManageAdminController@admintb')->name('user/json');

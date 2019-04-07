@@ -13,6 +13,10 @@
   .tab {
     display: none;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ded215852817841082c9b0caf92424e7df339f45
   #prevBtn {
     background-color: #bbbbbb;
   }
@@ -53,10 +57,17 @@
 
     <label>Nama Lengkap</label>
       <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe"></p>
+<<<<<<< HEAD
 
     <label>Tempat Lahir</label>
       <p><input type="text" name="tempat" class="form-control" placeholder="Jakarta"></p>
 
+=======
+
+    <label>Tempat Lahir</label>
+      <p><input type="text" name="tempat" class="form-control" placeholder="Jakarta"></p>
+
+>>>>>>> ded215852817841082c9b0caf92424e7df339f45
     <label>Tanggal Lahir</label>
       <p><input type="date" name="tgl_lahir"class="form-control" placeholder="17 November 1998"></p>
 
