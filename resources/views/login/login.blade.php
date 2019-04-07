@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(http://prod-upp-image-read.ft.com/f59f3032-2d61-11e6-bf8d-26294ad519fc);">
+				<div class="login100-form-title" style="background-image: url(https://images.unsplash.com/photo-1531674842274-9563aa15686f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80);">
 					<span class="login100-form-title-1">
 					Pengelolaan Data Mahasiswa  <br> SARMAG & Beasiswa Penuh
 					</span>

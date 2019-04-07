@@ -15,6 +15,7 @@ class CreateTableSmasmk extends Migration
       Schema::create('smasmk', function (Blueprint $table) {
           $table->increments('id');
           $table->unsignedInteger('id_mhs')->nullable();
+          $table->string('thn_lulus');
           $table->string('nama_cp');
           $table->string('jabatan_cp');
           $table->string('nohp_cp',15);
@@ -28,9 +29,11 @@ class CreateTableSmasmk extends Migration
           $table->float('nilai_bing', 8, 2);
           $table->string('catatan');
           $table->string('titipandosen');
+          $table->string('hubungan');
           $table->date('tgl_seleksi');
           $table->string('shift_ujian');
-          $table->string('pilihan');
+          $table->string('pilihan1');
+          $table->string('pilihan2');
           $table->string('upload');
           $table->string('change_by');
           $table->timestamps();

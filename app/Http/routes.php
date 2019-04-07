@@ -13,7 +13,10 @@
 
 Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
+Route::post('logout','LoginController@logout');
 Route::get('dashboard','AuthController@getRoot');
+Route::get('mahasiswa','AuthController@mahasiswa');
+
 
 
 //superadmin

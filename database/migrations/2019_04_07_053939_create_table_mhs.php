@@ -68,6 +68,8 @@ class CreateTableMhs extends Migration
           $table->float('fisika_ekonomixii2', 4, 2);
           $table->float('biologi_geografixii2', 4, 2);
           $table->float('kimia_sosiologixii2', 4, 2);
+          $table->float('nilai_total', 5, 2);
+          $table->float('rata_rata', 5, 2);
           $table->string('change_by');
           $table->timestamps();
       });

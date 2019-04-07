@@ -25,10 +25,13 @@ class AuthController extends Controller
     if (Auth::User()->roles_id == 1) {
     return redirect('admin');
     } elseif (Auth::User()->roles_id == 2) {
-    return view('partial.master');
+    return view('partial.dashboard');
   }else {
       return 'hai pengguna! saat ini belom ada view nya karena yg buat males nambahin :V buat logout ketik /logout di akhiran lalu enter';
     }
+  }
+  public function mahasiswa(){
+    return view ('partial.master');
   }
 
 }
