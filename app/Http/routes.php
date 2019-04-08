@@ -19,8 +19,8 @@ Route::get('mahasiswa','MahasiswaController@index');
 Route::post('mahasiswa/upload','MahasiswaController@store');
 Route::get('formisian','FormIsianController@index');
 Route::get('formisian/{id}/edit','FormIsianController@edit');
-Route::put('formisian/{id}','FormIsianController@post');
-Route::get('excel', 'ReportController@laporanExcel');
+Route::put('formisian/{id}','FormIsianController@update');
+Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
 
 
 //superadmin
