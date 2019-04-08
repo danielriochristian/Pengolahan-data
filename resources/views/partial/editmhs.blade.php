@@ -41,17 +41,15 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-  <form role="form">
+  <!-- <form role="form"> -->
     @foreach ($manage as $m)
-    <form id="regForm" action="formisian/{{ $m->id }}" method="post">
+    <form id="regForm" action="formisian/{{ $m->id }}">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
 
     <label>Nama Lengkap</label>
       <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe" value="{{ $m-> nama_lengkap}}"></p>
-
-
 
     <label>Tempat Lahir</label>
       <p><input type="text" name="tempat" class="form-control" placeholder="Jakarta" value="{{$m -> tempat}}"></p>
@@ -358,7 +356,7 @@
     <div style="overflow:auto;">
       <div style="float:right;">
         <button type="button" class="btn btn-sm btn-default btn-flat pull-left" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="submit" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
       </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
@@ -371,6 +369,14 @@
   </form>
 
   <script>
+  // $(document).ready(function() {
+  // $(window).keydown(function(event){
+  //   if(event.keyCode == 13) {
+  //     event.preventDefault();
+  //     return false;
+  //   }
+  // });
+  // });
   var currentTab = 0; // Current tab is set to be the first tab (0)
   showTab(currentTab); // Display the current tab
   function showTab(n) {
@@ -474,9 +480,10 @@
   document.getElementById('total').innerHTML = total;
   document.getElementById('rerata').innerHTML = rerata;
 }
+
+
   </script>
 
   </body>
-  </html>
 
 @endsection
