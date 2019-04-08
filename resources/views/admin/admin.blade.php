@@ -71,6 +71,7 @@
                 <div class="pull-right">
                   <button type="submit" class="btn btn-danger btn-flat" name="logout">Sign Out</button>
                 </div>
+                </form>
               </li>
             </ul>
           </li>
