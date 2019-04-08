@@ -19,6 +19,7 @@ Route::get('mahasiswa','AuthController@mahasiswa');
 Route::get('formisian','FormIsianController@index');
 Route::get('formisian/{id}/edit','FormIsianController@edit');
 Route::put('formisian/{id}','FormIsianController@update');
+Route::POST('deleteForm','FormIsianController@deleteForm');
 Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
 
 
