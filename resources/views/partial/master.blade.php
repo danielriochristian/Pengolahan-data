@@ -43,7 +43,7 @@
       <h3 class="box-title">Form Isian</h3>
     </div>
   <form role="form">
-    <form id="regForm" action="">
+    <form id="regForm" action="/tambahdata" enctype="multipart/form-data" method="post">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
@@ -349,6 +349,9 @@
       @endforeach
     </select>
 
+    <label for="file">File:</label>
+    <input type="file" class="form-control-file" id="tes" name="tes">
+
 
 
     </div>
@@ -356,8 +359,8 @@
 
     <div style="overflow:auto;">
       <div style="float:right;">
-        <button type="button" class="btn btn-sm btn-default btn-flat pull-left" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="button" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="btn btn-block btn-default btn-sm " id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" class="btn btn-block btn-success btn-sm " id="nextBtn" onclick="nextPrev(1)">Next</button>
       </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
