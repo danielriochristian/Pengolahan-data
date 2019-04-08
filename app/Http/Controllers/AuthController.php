@@ -30,8 +30,4 @@ class AuthController extends Controller
       return 'hai pengguna! saat ini belom ada view nya karena yg buat males nambahin :V buat logout ketik /logout di akhiran lalu enter';
     }
   }
-  public function mahasiswa(){
-    return view ('partial.master');
-  }
-
 }

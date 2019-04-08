@@ -14,9 +14,7 @@
     display: none;
   }
 
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
+
   /* Make circles that indicate the steps of the form: */
   .step {
     height: 15px;
@@ -41,8 +39,9 @@
     <div class="box-header with-border">
       <h3 class="box-title">Form Isian</h3>
     </div>
-  <form role="form">
-    <form id="regForm" action="">
+
+    <form id="regForm"action="/mahasiswa/upload" enctype="multipart/form-data" method="post">
+      {{ csrf_field() }}
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
@@ -79,7 +78,7 @@
       <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
 
     <label>RT/RW</label>
-      <p><input type="text" name="rt/rw"class="form-control" placeholder="02/12"></p>
+      <p><input type="text" name="rt"class="form-control" placeholder="02/12"></p>
 
     <label>Kelurahan</label>
       <p><input type="text" name="kelurahan"class="form-control" placeholder="Cinere"></p>
@@ -88,7 +87,7 @@
       <p><input type="text" name="kecamatan"class="form-control" placeholder="Limo"></p>
 
     <label>Kabupaten/Kota</label>
-      <p><input type="text" name="kab/kota"class="form-control" placeholder="Depok"></p>
+      <p><input type="text" name="kab"class="form-control" placeholder="Depok"></p>
 
     <label>Kode Pos</label>
       <p><input type="text" name="kode_pos"class="form-control" placeholder="16514"></p>
@@ -262,15 +261,15 @@
 
 
     <label>Total Nilai 5 semester</label>
-    <output id="total" type="text" class="form-control"></output>
+    <input id="Total" name="nilai_total" type="text" class="form-control"  readonly>
 
 
     <label>Rata - rata</label>
-    <output id="rerata" type="text" class="form-control"></output>
+    <input id="Rerata" name="rata_rata" type="text" class="form-control"  readonly>
 
 
     <label>Thn Lulus SMA/MA/SMK *</label>
-    <input type="text" name="thn_lulus" class="form-control" >
+    <input type="text" name="thn_lulus" class="form-control"><br>
 
   </div>
 
@@ -336,7 +335,7 @@
     <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
 
     <label>Pilihan 1</label>
-    <select name="jurusan" id="jurusan" class="form-control">
+    <select name="pilihan1" id="jurusan" class="form-control">
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
       @endforeach
@@ -344,22 +343,31 @@
 
 
     <label>Pilihan 2</label>
-    <select name="jurusan" id="jurusan" class="form-control">
+    <select name="pilihan2" id="jurusan" class="form-control">
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
       @endforeach
     </select>
 
+    <label for="file">File:</label>
+    <input type="file" class="form-control-file" id="tes" name="tes">
+
 
 
     </div>
 
-
+{{--
     <div style="overflow:auto;">
       <div style="float:right;">
-        <button type="button" class="btn btn-sm btn-default btn-flat pull-left" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="button" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="btn btn-block btn-default btn-sm " id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" class="btn btn-block btn-success btn-sm " id="nextBtn" onclick="nextPrev(1)">Next</button>
       </div>
+    </div> --}}
+    <div style="float:right;">
+    <div class="btn-group">
+      <button type="button" id="prevBtn" class="btn btn-default" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" class="btn btn-success" onclick="nextPrev(1)">Next</button>
+    </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:40px;">
@@ -372,73 +380,77 @@
 
   <script>
   var currentTab = 0; // Current tab is set to be the first tab (0)
-  showTab(currentTab); // Display the current tab
-  function showTab(n) {
-    // This function will display the specified tab of the form...
-    var x = document.getElementsByClassName("tab");
-    x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
-    if (n == 0) {
-      document.getElementById("prevBtn").style.display = "none";
-    } else {
-      document.getElementById("prevBtn").style.display = "inline";
-    }
-    if (n == (x.length - 1)) {
-      document.getElementById("nextBtn").innerHTML = "Submit";
-    } else {
-      document.getElementById("nextBtn").innerHTML = "Next";
-    }
-    //... and run a function that will display the correct step indicator:
-    fixStepIndicator(n)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
   }
-  function nextPrev(n) {
-    // This function will figure out which tab to display
-    var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form...
-    if (currentTab >= x.length) {
-      // ... the form gets submitted:
-      document.getElementById("regForm").submit();
-      return false;
-    }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
   }
-  function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-      // If a field is empty...
-      if (y[i].value == "") {
-        // add an "invalid" class to the field:
-        y[i].className += " invalid";
-        // and set the current valid status to false
-        valid = false;
-      }
-    }
-    // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
-      document.getElementsByClassName("step")[currentTab].className += " finish";
-    }
-    return valid; // return the valid status
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
   }
-  function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-      x[i].className = x[i].className.replace(" active", "");
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
     }
-    //... and adds the "active" class on the current step:
-    x[n].className += " active";
   }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
   function jumlahkan(){
   var bhsingx1 = document.getElementById('bhsingx1').value;
   var mtkx1 = document.getElementById('mtkx1').value;
@@ -469,14 +481,12 @@
   parseFloat(bhsingx2) + parseFloat(mtkx2) + parseFloat(fisekx2) + parseFloat(bigeox2) + parseFloat(kimsox2) +
   parseFloat(bhsingxi1) + parseFloat(mtkxi1) + parseFloat(fisekxi1) + parseFloat(bigeoxi1) + parseFloat(kimsoxi1) +
   parseFloat(bhsingxi2) + parseFloat(mtkxi2) + parseFloat(fisekxi2) + parseFloat(bigeoxi2) + parseFloat(kimsoxi2) +
-  parseFloat(bhsingxii1) + parseFloat(mtkxii1) + parseFloat(fisekxii1) + parseFloat(bigeoxii1) + parseFloat(kimsoxii1);
-  var rerata = parseFloat(total)/25;
-  document.getElementById('total').innerHTML = total;
-  document.getElementById('rerata').innerHTML = rerata;
+  parseFloat(bhsingxii1) + parseFloat(mtkxii1) + parseFloat(fisekxii1) + parseFloat(bigeoxii1) + parseFloat(kimsoxii1); $('#Total').val(total);
+  var rerata = parseFloat(total)/25;$('#Rerata').val(rerata);
+
 }
   </script>
 
-  </body>
-  </html>
+
 
 @endsection
