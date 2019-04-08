@@ -71,6 +71,7 @@
                 <div class="pull-right">
                   <button type="submit" class="btn btn-danger btn-flat" name="logout">Sign Out</button>
                 </div>
+                </form>
               </li>
             </ul>
           </li>
@@ -85,6 +86,7 @@
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+        <li><a href="dashboard"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Master</span>
@@ -94,8 +96,9 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/mahasiswa"><i class="fa fa-circle-o"></i>Mahasiswa</a></li>
-
+              <li><a href="/formisian"><i class="fa fa-circle-o"></i>List Form</a></li>
           </ul>
+
         </li>
     </section>
 
@@ -119,6 +122,8 @@
     <section class="content">
       @yield('master')
       @yield('dashboard')
+      @yield('editmhs')
+      @yield('formisian')
 
 
       <!-- /.row (main row) -->

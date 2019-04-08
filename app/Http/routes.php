@@ -15,8 +15,12 @@ Route::get('/','LoginController@index');
 Route::post('postlogin','LoginController@postLogin');
 Route::post('logout','LoginController@logout');
 Route::get('dashboard','AuthController@getRoot');
-Route::get('mahasiswa','AuthController@mahasiswa');
-
+Route::get('mahasiswa','MahasiswaController@index');
+Route::post('mahasiswa/upload','MahasiswaController@store');
+Route::get('formisian','FormIsianController@index');
+Route::get('formisian/{id}/edit','FormIsianController@edit');
+Route::put('formisian/{id}','FormIsianController@post');
+Route::get('excel', 'ReportController@laporanExcel');
 
 
 //superadmin
