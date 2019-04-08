@@ -41,14 +41,23 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-    <form id="formReg" action="formisian/{{ $manage[0]->id }}" method="post">
+    <form id="formReg" action="/formisian/{{ $manage[0]->id }}" method="post">
+      <input type="hidden" name="_method" value="put">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
 
+    <label>No Urut</label>
+        <p><input type="text" name="no_urut" class="form-control" value="{{ $manage[0]-> no_urut}}" disabled></p>
+      
+
+    <label>No Ujian</label>
+      <p><input type="text" name="no_ujian" class="form-control" value="{{ $manage[0]-> no_ujian}}"></p>
+
+
     <label>Nama Lengkap</label>
       <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe" value="{{ $manage[0]-> nama_lengkap}}"></p>
-
 
 
     <label>Tempat Lahir</label>
@@ -74,7 +83,7 @@
       <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina" value="{{$manage[0] -> nm_jln}}"></p>
 
     <label>RT/RW</label>
-      <p><input type="text" name="rt/rw"class="form-control" placeholder="02/12" value="{{$manage[0] -> rtrw}}"></p>
+      <p><input type="text" name="rtrw"class="form-control" placeholder="02/12" value="{{$manage[0] -> rtrw}}"></p>
 
     <label>Kelurahan</label>
       <p><input type="text" name="kelurahan"class="form-control" placeholder="Cinere" value="{{$manage[0] -> kelurahan}}"></p>
@@ -83,7 +92,7 @@
       <p><input type="text" name="kecamatan"class="form-control" placeholder="Limo" value="{{$manage[0] -> kecamatan}}"></p>
 
     <label>Kabupaten/Kota</label>
-      <p><input type="text" name="kab/kota"class="form-control" placeholder="Depok" value="{{$manage[0] -> kabkota}}"></p>
+      <p><input type="text" name="kabkota"class="form-control" placeholder="Depok" value="{{$manage[0] -> kabkota}}"></p>
 
     <label>Kode Pos</label>
       <p><input type="text" name="kode_pos"class="form-control" placeholder="16514" value="{{$manage[0] -> kode_pos}}"></p>
@@ -256,11 +265,12 @@
 
 
     <label>Total Nilai 5 semester</label>
-    <output id="total" type="text" class="form-control"></output>
+    <!-- <input id="total" type="text" class="form-control" value="{{$manage[0] -> nilai_total}}"> -->
+    <output id="total" type="text" class="form-control" value="{{$manage[0] -> nilai_total}}"></output>
 
 
     <label>Rata - rata</label>
-    <output id="rerata" type="text" class="form-control"></output>
+    <output id="rerata" type="text" class="form-control" value="{{$manage[0] -> rata_rata}}"></output>
 
 
 
@@ -332,7 +342,7 @@
     <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
 
     <label>Pilihan 1</label>
-    <select name="jurusan" id="jurusan" class="form-control" value="{{$manage[0] -> pilihan1}}">
+    <select name="jurusan1" id="jurusan1" class="form-control" value="{{$manage[0] -> pilihan1}}">
       <option value="{{$manage[0] -> pilihan1}}">{{$manage[0] -> pilihan1}}</option>
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
@@ -341,7 +351,7 @@
 
 
     <label>Pilihan 2</label>
-    <select name="jurusan" id="jurusan" class="form-control" value="{{$manage[0] -> pilihan2}}">
+    <select name="jurusan2" id="jurusan2" class="form-control" value="{{$manage[0] -> pilihan2}}">
       <option value="{{$manage[0] -> pilihan1}}">{{$manage[0] -> pilihan1}}</option>
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>

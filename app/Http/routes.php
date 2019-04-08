@@ -18,8 +18,8 @@ Route::get('dashboard','AuthController@getRoot');
 Route::get('mahasiswa','AuthController@mahasiswa');
 Route::get('formisian','FormIsianController@index');
 Route::get('formisian/{id}/edit','FormIsianController@edit');
-Route::put('formisian/{id}','FormIsianController@post');
-
+Route::put('formisian/{id}','FormIsianController@update');
+Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
 
 
 //superadmin
