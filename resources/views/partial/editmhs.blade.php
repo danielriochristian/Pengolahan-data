@@ -2,7 +2,7 @@
 @section('editmhs')
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <style>
-  #regForm {
+  #formReg {
     font-family: Raleway;
   }
   /* Mark input boxes that gets an error on validation: */
@@ -41,9 +41,8 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-  <form role="form">
     @foreach ($manage as $m)
-    <form id="regForm" action="formisian/{{ $m->id }}" method="post">
+    <form id="formReg" action="formisian/{{ $m->id }}" method="post">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
@@ -358,7 +357,7 @@
     <div style="overflow:auto;">
       <div style="float:right;">
         <button type="button" class="btn btn-sm btn-default btn-flat pull-left" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="submit" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="btn btn-sm btn-success btn-flat pull-right" id="nextBtn" onclick="nextPrev(1)">Next</button>
       </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
@@ -395,7 +394,7 @@
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("tab");
     // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
+    //if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
@@ -403,7 +402,7 @@
     // if you have reached the end of the form...
     if (currentTab >= x.length) {
       // ... the form gets submitted:
-      document.getElementById("regForm").submit();
+      document.getElementById("formReg").submit();
       return false;
     }
     // Otherwise, display the correct tab:
