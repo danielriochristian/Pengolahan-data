@@ -41,65 +41,64 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-    @foreach ($manage as $m)
-    <form id="formReg" action="formisian/{{ $m->id }}" method="post">
+    <form id="formReg" action="formisian/{{ $manage[0]->id }}" method="post">
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
 
     <label>Nama Lengkap</label>
-      <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe" value="{{ $m-> nama_lengkap}}"></p>
+      <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe" value="{{ $manage[0]-> nama_lengkap}}"></p>
 
 
 
     <label>Tempat Lahir</label>
-      <p><input type="text" name="tempat" class="form-control" placeholder="Jakarta" value="{{$m -> tempat}}"></p>
+      <p><input type="text" name="tempat" class="form-control" placeholder="Jakarta" value="{{$manage[0] -> tempat}}"></p>
 
 
     <label>Tanggal Lahir</label>
-      <p><input type="date" name="tgl_lahir"class="form-control" placeholder="17 November 1998" value="{{$m -> tgl_lahir}}"></p>
+      <p><input type="date" name="tgl_lahir"class="form-control" placeholder="17 November 1998" value="{{$manage[0] -> tgl_lahir}}"></p>
 
     <label>Telpon Rumah</label>
-      <p><input type="text" name="telp_rumah"class="form-control" placeholder="02112341" value="{{$m -> telp_rumah}}"></p>
+      <p><input type="text" name="telp_rumah"class="form-control" placeholder="02112341" value="{{$manage[0] -> telp_rumah}}"></p>
 
     <label>No. HP Siswa</label>
-      <p><input type="text" name="no_hp_siswa"class="form-control" placeholder="08787121xxx" value="{{$m -> no_hp_siswa}}"></p>
+      <p><input type="text" name="no_hp_siswa"class="form-control" placeholder="08787121xxx" value="{{$manage[0] -> no_hp_siswa}}"></p>
 
     <label>No. HP Orang Tua</label>
-      <p><input type="text" name="no_hp_orangtua"class="form-control" placeholder="08787121xxx" value="{{$m -> no_hp_orangtua}}"></p>
+      <p><input type="text" name="no_hp_orangtua"class="form-control" placeholder="08787121xxx" value="{{$manage[0] -> no_hp_orangtua}}"></p>
 
     <label>Alamat Rumah Siswa</label>
-      <p><input type="text" name="alamat"style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina" value="{{$m -> alamat}}"></p>
+      <p><input type="text" name="alamat"style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina" value="{{$manage[0] -> alamat}}"></p>
 
     <label>Nama Jalan & No Rumah</label>
-      <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina" value="{{$m -> nm_jln}}"></p>
+      <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina" value="{{$manage[0] -> nm_jln}}"></p>
 
     <label>RT/RW</label>
-      <p><input type="text" name="rt/rw"class="form-control" placeholder="02/12" value="{{$m -> rtrw}}"></p>
+      <p><input type="text" name="rt/rw"class="form-control" placeholder="02/12" value="{{$manage[0] -> rtrw}}"></p>
 
     <label>Kelurahan</label>
-      <p><input type="text" name="kelurahan"class="form-control" placeholder="Cinere" value="{{$m -> kelurahan}}"></p>
+      <p><input type="text" name="kelurahan"class="form-control" placeholder="Cinere" value="{{$manage[0] -> kelurahan}}"></p>
 
     <label>Kecamatan</label>
-      <p><input type="text" name="kecamatan"class="form-control" placeholder="Limo" value="{{$m -> kecamatan}}"></p>
+      <p><input type="text" name="kecamatan"class="form-control" placeholder="Limo" value="{{$manage[0] -> kecamatan}}"></p>
 
     <label>Kabupaten/Kota</label>
-      <p><input type="text" name="kab/kota"class="form-control" placeholder="Depok" value="{{$m -> kabkota}}"></p>
+      <p><input type="text" name="kab/kota"class="form-control" placeholder="Depok" value="{{$manage[0] -> kabkota}}"></p>
 
     <label>Kode Pos</label>
-      <p><input type="text" name="kode_pos"class="form-control" placeholder="16514" value="{{$m -> kode_pos}}"></p>
+      <p><input type="text" name="kode_pos"class="form-control" placeholder="16514" value="{{$manage[0] -> kode_pos}}"></p>
 
     <label>Email Siswa</label>
-      <p><input type="text" name="email"class="form-control" placeholder="someone@gmail.com" value="{{$m -> email}}"></p>
+      <p><input type="text" name="email"class="form-control" placeholder="someone@gmail.com" value="{{$manage[0] -> email}}"></p>
 
     <label>Status SMA/MA/SMK</label>
-      <p><select class="form-control" name="status" value="{{$m -> status}}">
+      <p><select class="form-control" name="status" value="{{$manage[0] -> status}}">
         <option>Negeri</option>
         <option>Swasta</option>
       </select></p>
 
     <label>Jurusan SMA/MA/SMK</label>
-      <p><select class="form-control" name="jurursan" value="{{$m -> jurusan}}">
+      <p><select class="form-control" name="jurursan" value="{{$manage[0] -> jurusan}}">
         <option>IPA</option>
         <option>IPS</option>
         <option>Bahasa</option>
@@ -114,46 +113,46 @@
 
         <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
         <div class="col-sm-10">
-          <input type="text" name="bingx1"class="form-control" id="bhsingx1" placeholder="" value="{{$m -> bingx1}}">
+          <input type="text" name="bingx1"class="form-control" id="bhsingx1" placeholder="" value="{{$manage[0] -> bingx1}}">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
         <div class="col-sm-10">
-          <input type="text" name="mtkx1"class="form-control" id="mtkx1" placeholder="" value="{{$m -> mtkx1}}">
+          <input type="text" name="mtkx1"class="form-control" id="mtkx1" placeholder="" value="{{$manage[0] -> mtkx1}}">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
         <div class="col-sm-10">
-          <input type="text" name="fisika_ekonomix1" class="form-control" id="fisekx1" placeholder="" value="{{$m -> fisika_ekonomix1}}">
+          <input type="text" name="fisika_ekonomix1" class="form-control" id="fisekx1" placeholder="" value="{{$manage[0] -> fisika_ekonomix1}}">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label" >Biologi/Geografi</label>
         <div class="col-sm-10">
-          <input type="text" name="biologi_geografix1"class="form-control" id="bigeox1" placeholder="" value="{{$m -> biologi_geografix1}}">
+          <input type="text" name="biologi_geografix1"class="form-control" id="bigeox1" placeholder="" value="{{$manage[0] -> biologi_geografix1}}">
         </div>
         <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
         <div class="col-sm-10">
-          <input type="text" name="kimia_sosiologix1"class="form-control" onchange="jumlahkan()" id="kimsox1" placeholder="" value="{{$m -> kimia_sosiologix1}}">
+          <input type="text" name="kimia_sosiologix1"class="form-control" onchange="jumlahkan()" id="kimsox1" placeholder="" value="{{$manage[0] -> kimia_sosiologix1}}">
         </div>
 
     <label>Kelas 10 Semester 2</label><br>
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="text" name="bingx2" class="form-control" id="bhsingx2" value="{{$m -> bingx2}}">
+      <input type="text" name="bingx2" class="form-control" id="bhsingx2" value="{{$manage[0] -> bingx2}}">
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="text"name="mtkx2" class="form-control" id="mtkx2" value="{{$m -> mtkx2}}">
+      <input type="text"name="mtkx2" class="form-control" id="mtkx2" value="{{$manage[0] -> mtkx2}}">
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="text" name="fisika_ekonomix2"class="form-control" id="fisekx2" value="{{$m -> fisika_ekonomix2}}">
+      <input type="text" name="fisika_ekonomix2"class="form-control" id="fisekx2" value="{{$manage[0] -> fisika_ekonomix2}}">
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="text" name="biologi_geografix2" class="form-control" id="bigeox2" value="{{$m -> biologi_geografix2}}">
+      <input type="text" name="biologi_geografix2" class="form-control" id="bigeox2" value="{{$manage[0] -> biologi_geografix2}}">
     </div>
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="text" name="kimia_sosiologix2" class="form-control" onchange="jumlahkan()" id="kimsox2" value="{{$m -> kimia_sosiologix2}}">
+      <input type="text" name="kimia_sosiologix2" class="form-control" onchange="jumlahkan()" id="kimsox2" value="{{$manage[0] -> kimia_sosiologix2}}">
     </div>
 
     <label>Kelas 11 Semester 1</label><br>
@@ -161,30 +160,30 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="text" name="bingxi1"class="form-control" id="bhsingxi1" value="{{$m -> bingxi1}}">
+      <input type="text" name="bingxi1"class="form-control" id="bhsingxi1" value="{{$manage[0] -> bingxi1}}">
     </div>
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="text" name="mtkxi1"class="form-control" id="mtkxi1" value="{{$m -> mtkxi1}}">
+      <input type="text" name="mtkxi1"class="form-control" id="mtkxi1" value="{{$manage[0] -> mtkxi1}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="text" name="fisika_ekonomixi1" class="form-control" id="fisekxi1" value="{{$m -> fisika_ekonomixi1}}">
+      <input type="text" name="fisika_ekonomixi1" class="form-control" id="fisekxi1" value="{{$manage[0] -> fisika_ekonomixi1}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="text" name="biologi_geografixi1" class="form-control" id="bigeoxi1" value="{{$m -> biologi_geografixi1}}">
+      <input type="text" name="biologi_geografixi1" class="form-control" id="bigeoxi1" value="{{$manage[0] -> biologi_geografixi1}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="text" name="kimia_sosiologixi1" class="form-control" onchange="jumlahkan()" id="kimsoxi1" value="{{$m -> kimia_sosiologixi1}}">
+      <input type="text" name="kimia_sosiologixi1" class="form-control" onchange="jumlahkan()" id="kimsoxi1" value="{{$manage[0] -> kimia_sosiologixi1}}">
     </div>
 
 
@@ -194,31 +193,31 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="text" name="bingxi2"class="form-control" id="bhsingxi2" value="{{$m -> bingxi2}}">
+      <input type="text" name="bingxi2"class="form-control" id="bhsingxi2" value="{{$manage[0] -> bingxi2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="text" name="mtkxi2" class="form-control" id="mtkxi2" value="{{$m -> mtkxi2}}">
+      <input type="text" name="mtkxi2" class="form-control" id="mtkxi2" value="{{$manage[0] -> mtkxi2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="text" name="fisika_ekonomixi2"class="form-control" id="fisekxi2" value="{{$m -> fisika_ekonomixi2}}">
+      <input type="text" name="fisika_ekonomixi2"class="form-control" id="fisekxi2" value="{{$manage[0] -> fisika_ekonomixi2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="text" name="biologi_geografixi2"class="form-control" id="bigeoxi2" value="{{$m -> biologi_geografixi2}}">
+      <input type="text" name="biologi_geografixi2"class="form-control" id="bigeoxi2" value="{{$manage[0] -> biologi_geografixi2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="text" name="kimia_sosiologixi2" class="form-control" onchange="jumlahkan()" id="kimsoxi2" value="{{$m -> kimia_sosiologixi2}}">
+      <input type="text" name="kimia_sosiologixi2" class="form-control" onchange="jumlahkan()" id="kimsoxi2" value="{{$manage[0] -> kimia_sosiologixi2}}">
     </div>
 
 
@@ -228,31 +227,31 @@
 
     <label for="inputEmail3" class="col-sm-2 control-label">Bhs Inggris</label>
     <div class="col-sm-10">
-      <input type="text" name="bingxii2"class="form-control" id="bhsingxii1" value="{{$m -> bingxi2}}">
+      <input type="text" name="bingxii2"class="form-control" id="bhsingxii1" value="{{$manage[0] -> bingxi2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Matematika</label>
     <div class="col-sm-10">
-      <input type="text" name="mtkxii2"class="form-control" id="mtkxii1" value="{{$m -> mtkxii2}}">
+      <input type="text" name="mtkxii2"class="form-control" id="mtkxii1" value="{{$manage[0] -> mtkxii2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Fisika/Ekonomi</label>
     <div class="col-sm-10">
-      <input type="text" name="fisika_ekonomixii2" class="form-control" id="fisekxii1" value="{{$m -> fisika_ekonomixii2}}">
+      <input type="text" name="fisika_ekonomixii2" class="form-control" id="fisekxii1" value="{{$manage[0] -> fisika_ekonomixii2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Biologi/Geografi</label>
     <div class="col-sm-10">
-      <input type="text" name="biologi_geografixii2" class="form-control" id="bigeoxii1" value="{{$m -> biologi_geografixii2}}">
+      <input type="text" name="biologi_geografixii2" class="form-control" id="bigeoxii1" value="{{$manage[0] -> biologi_geografixii2}}">
     </div>
 
 
     <label for="inputEmail3" class="col-sm-2 control-label">Kimia/Sosiologi</label>
     <div class="col-sm-10">
-      <input type="text" name="kimia_sosiologixii2"class="form-control" onchange="jumlahkan()" id="kimsoxii1" value="{{$m -> kimia_sosiologixii2}}">
+      <input type="text" name="kimia_sosiologixii2"class="form-control" onchange="jumlahkan()" id="kimsoxii1" value="{{$manage[0] -> kimia_sosiologixii2}}">
     </div>
 
 
@@ -270,71 +269,71 @@
 
 <div class="tab">
     <label>Thn Lulus SMA/MA/SMK *</label>
-    <input type="text" name="thn_lulus" class="form-control" value="{{$m -> thn_lulus}}">
+    <input type="text" name="thn_lulus" class="form-control" value="{{$manage[0] -> thn_lulus}}">
 
     <label>Nama Contact Person *</label>
-    <input type="text" name="nama_cp"class="form-control" value="{{$m -> nama_cp}}">
+    <input type="text" name="nama_cp"class="form-control" value="{{$manage[0] -> nama_cp}}">
 
 
     <label>Jabatan Contact Person *</label>
-    <input type="text" name="jabatan_cp" class="form-control" value="{{$m -> jabatan_cp}}">
+    <input type="text" name="jabatan_cp" class="form-control" value="{{$manage[0] -> jabatan_cp}}">
 
 
     <label>No. HP/WA CP *</label>
-    <input type="text" name="nohp_cp" class="form-control" value="{{$m -> nohp_cp}}">
+    <input type="text" name="nohp_cp" class="form-control" value="{{$manage[0] -> nohp_cp}}">
 
 
     <label>Email CP </label>
-    <input type="text" name="email_cp"class="form-control" value="{{$m -> email_cp}}">
+    <input type="text" name="email_cp"class="form-control" value="{{$manage[0] -> email_cp}}">
 
 
     <label>Alamat Sekolah1 </label>
-    <input type="text" name="alamat1"class="form-control" value="{{$m -> alamat1}}">
+    <input type="text" name="alamat1"class="form-control" value="{{$manage[0] -> alamat1}}">
 
 
     <label>Alamat Sekolah2 </label>
-    <input type="text" name="alamat2"class="form-control" value="{{$m -> alamat2}}">
+    <input type="text" name="alamat2"class="form-control" value="{{$manage[0] -> alamat2}}">
 
 
     <label>Kota SMA/SMK Berada *</label>
-    <select class="form-control" name="kota_sekolah" value="{{$m -> kota_sekolah}}">
+    <select class="form-control" name="kota_sekolah" value="{{$manage[0] -> kota_sekolah}}">
       <option>Jabodetabek</option>
       <option>Luar Jabodetabek</option>
     </select>
 
 
     <label>Telpon Sekolah </label>
-    <input type="text" name="telp_sekolah"class="form-control" placeholder="" value="{{$m -> telp_sekolah}}">
+    <input type="text" name="telp_sekolah"class="form-control" placeholder="" value="{{$manage[0] -> telp_sekolah}}">
 
     <label>Fax Sekolah</label>
-    <input type="text" name="fax_sekolah" class="form-control" placeholder="" value="{{$m -> fax_sekolah}}">
+    <input type="text" name="fax_sekolah" class="form-control" placeholder="" value="{{$manage[0] -> fax_sekolah}}">
 
     <label>Nilai TPA</label>
-    <input type="text" name="nilai_tpa" class="form-control" placeholder="" value="{{$m -> nilai_tpa}}">
+    <input type="text" name="nilai_tpa" class="form-control" placeholder="" value="{{$manage[0] -> nilai_tpa}}">
 
     <label>Nilai Bahasa Inggris </label>
-    <input type="text" name="nilai_bing"class="form-control" placeholder="" value="{{$m -> nilai_bing}}">
+    <input type="text" name="nilai_bing"class="form-control" placeholder="" value="{{$manage[0] -> nilai_bing}}">
 
     <label>Catatan</label>
-    <input type="text" name="catatan"class="form-control" placeholder="" value="{{$m -> catatan}}">
+    <input type="text" name="catatan"class="form-control" placeholder="" value="{{$manage[0] -> catatan}}">
 
     <label>Titipan dari Dosen/Staff</label>
-    <input type="text" name="titipandosen"class="form-control" placeholder="" value="{{$m -> titipandosen}}">
+    <input type="text" name="titipandosen"class="form-control" placeholder="" value="{{$manage[0] -> titipandosen}}">
 
     <label>Hubungan dengan Penitip </label>
-    <input type="text" name="hubungan"class="form-control" placeholder="" value="{{$m -> hubungan}}">
+    <input type="text" name="hubungan"class="form-control" placeholder="" value="{{$manage[0] -> hubungan}}">
 
     <label>Tanggal Seleksi </label>
-    <input type="date" name="tgl_seleksi" class="form-control" placeholder="" value="{{$m -> tgl_seleksi}}">
+    <input type="date" name="tgl_seleksi" class="form-control" placeholder="" value="{{$manage[0] -> tgl_seleksi}}">
 
     <label>Shift Ujian Seleksi</label>
-    <input type="text" name="shift_ujian"class="form-control" placeholder="" value="{{$m -> shift_ujian}}">
+    <input type="text" name="shift_ujian"class="form-control" placeholder="" value="{{$manage[0] -> shift_ujian}}">
 
     <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
 
     <label>Pilihan 1</label>
-    <select name="jurusan" id="jurusan" class="form-control" value="{{$m -> pilihan1}}">
-      <option value="{{$m -> pilihan1}}">{{$m -> pilihan1}}</option>
+    <select name="jurusan" id="jurusan" class="form-control" value="{{$manage[0] -> pilihan1}}">
+      <option value="{{$manage[0] -> pilihan1}}">{{$manage[0] -> pilihan1}}</option>
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
       @endforeach
@@ -342,14 +341,12 @@
 
 
     <label>Pilihan 2</label>
-    <select name="jurusan" id="jurusan" class="form-control" value="{{$m -> pilihan2}}">
-      <option value="{{$m -> pilihan1}}">{{$m -> pilihan1}}</option>
+    <select name="jurusan" id="jurusan" class="form-control" value="{{$manage[0] -> pilihan2}}">
+      <option value="{{$manage[0] -> pilihan1}}">{{$manage[0] -> pilihan1}}</option>
       @foreach ($jurusan as $jur)
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
       @endforeach
     </select>
-
-@endforeach
 
     </div>
 
