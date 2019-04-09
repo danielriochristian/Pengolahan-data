@@ -23,6 +23,8 @@ Route::put('formisian/{id}','FormIsianController@update');
 Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
 
 
+
+
 //superadmin
 Route::get('user/json','ManageAdminController@admintb')->name('user/json');
 Route::get('admin','ManageAdminController@index');

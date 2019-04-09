@@ -24,14 +24,14 @@ class CreateTableMhs extends Migration
           $table->string('no_hp_orangtua',15);
           $table->string('alamat');
           $table->string('nm_jln');
-          $table->string('rt/rw',10);
+          $table->string('rtrw',10);
           $table->string('kelurahan',20);
           $table->string('kecamatan',20);
-          $table->string('kab/kota',20);
+          $table->string('kabkota',20);
           $table->string('kode_pos',10);
           $table->string('email');
           $table->string('status');
-          $table->string('jurursan');
+          $table->string('jurusan');
           $table->string('change_by');
           $table->timestamps();
       });
@@ -68,8 +68,8 @@ class CreateTableMhs extends Migration
           $table->float('fisika_ekonomixii2', 4, 2);
           $table->float('biologi_geografixii2', 4, 2);
           $table->float('kimia_sosiologixii2', 4, 2);
-          $table->float('nilai_total', 5, 2);
-          $table->float('rata_rata', 5, 2);
+          $table->float('nilai_total', 6, 2);
+          $table->float('rata_rata', 6, 2);
           $table->string('change_by');
           $table->timestamps();
       });
