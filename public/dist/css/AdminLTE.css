@@ -1065,7 +1065,7 @@ a:focus {
   border-top-left-radius: 0;
   padding: 1px 0 0 0;
   border-top-width: 0;
-  width: 280px;
+  width: 160px;
 }
 .navbar-nav > .user-menu > .dropdown-menu,
 .navbar-nav > .user-menu > .dropdown-menu > .user-body {
@@ -1211,7 +1211,7 @@ a:focus {
 .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
   position: absolute;
   right: 0;
-  left: auto;
+  
 }
 @media (max-width: 991px) {
   .navbar-custom-menu > .navbar-nav {

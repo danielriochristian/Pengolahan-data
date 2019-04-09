@@ -23,7 +23,7 @@ class AuthController extends Controller
   }
   public function getRoot() {
     if (Auth::User()->roles_id == 1) {
-    return redirect('admin');
+    return view('partial.dashboardsuperadmin');
     } elseif (Auth::User()->roles_id == 2) {
     return view('partial.dashboard');
   }else {

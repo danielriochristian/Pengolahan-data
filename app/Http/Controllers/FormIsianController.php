@@ -15,6 +15,7 @@ use Yajra\Datatables\Facades\Datatables;
 use App\Mhs;
 use App\Nilai;
 use App\Smasmk;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FormIsianController extends Controller
 {
@@ -153,4 +154,23 @@ class FormIsianController extends Controller
         })
         ->make(true);
     }
+    // public function export(){
+    //   $manage = DB::table('mhs')
+    //   ->join('nilai', 'mhs.id', '=', 'nilai.id_mhs')
+    //   ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
+    //   ->get();
+    //   // dd($manage);
+    //   return view('partial.export')->with(compact('manage'));
+    // }
+
+    public function export(){
+      $items = Mhs::all();
+      // $nilai = nilai::all();
+      // $smasmk = Smasmk::all();
+      Excel::create('items', function($excel) use($items) {
+          $excel->sheet('ExportFile', function($sheet) use($items) {
+              $sheet->fromArray($items);
+          });
+      })->export('xls');
+}
 }

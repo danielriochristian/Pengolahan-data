@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}"> -->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
@@ -32,7 +32,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+  <script src="{{url('bower_components/jquery/dist/jquery.min.js')}}"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
@@ -68,48 +69,21 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{Auth::User()->name}}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+
+                <form action="/logout" method="post">
+                {{ csrf_field() }}
+                <div align="center">
+                  <button type="submit" class="btn btn-danger btn-flat" name="logout">Sign Out</button>
                 </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
+                </form>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -122,6 +96,7 @@
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+        <li><a href="dashboard"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
         <li><a href="admin"><i class="fa fa-users"></i> <span>Manage User</span></a></li>
         <li><a href="jurusan"><i class="fa fa-pencil-square-o"></i> <span>Manage Jurusan</span></a></li>
 
@@ -148,6 +123,7 @@
     <section class="content">
       @yield('admin')
       @yield('jurusan')
+      @yield('dashboard')
 
       <!-- /.row (main row) -->
 
@@ -167,7 +143,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<!-- <script src="{{url('bower_components/jquery/dist/jquery.min.js')}}"></script> -->
 <!-- jQuery UI 1.11.4 -->
 <script src="{{url('bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -175,7 +150,7 @@
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{url('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- <script src="{{url('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script> -->
 <!-- Morris.js charts -->
 <script src="{{url('bower_components/raphael/raphael.min.js')}}"></script>
 <script src="{{url('bower_components/morris.js/morris.min.js')}}"></script>

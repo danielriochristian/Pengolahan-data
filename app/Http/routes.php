@@ -22,6 +22,7 @@ Route::get('formisian/{id}/edit','FormIsianController@edit');
 Route::put('formisian/{id}','FormIsianController@update');
 Route::POST('deleteForm','FormIsianController@deleteForm');
 Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
+Route::get('get_report','FormIsianController@export');
 
 
 //superadmin

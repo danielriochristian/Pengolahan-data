@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}"> -->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
@@ -32,7 +32,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+  <script src="{{url('bower_components/jquery/dist/jquery.min.js')}}"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
@@ -71,12 +72,10 @@
 
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="/" class="btn btn-info btn-flat">Profile</a>
-                </div>
+
                 <form action="/logout" method="post">
                 {{ csrf_field() }}
-                <div class="pull-right">
+                <div align="center">
                   <button type="submit" class="btn btn-danger btn-flat" name="logout">Sign Out</button>
                 </div>
                 </form>
@@ -143,7 +142,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-    
+
     </div>
     <strong>Gunadarma University Computing Center</strong> All rights
     reserved.
@@ -154,13 +153,13 @@
 <!-- jQuery 3 -->
 <!-- <script src="{{url('bower_components/jquery/dist/jquery.min.js')}}"></script> -->
 <!-- jQuery UI 1.11.4 -->
-<script src="{{url('bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- <script src="{{url('bower_components/jquery-ui/jquery-ui.min.js')}}"></script> -->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
+<!-- <script>
   $.widget.bridge('uibutton', $.ui.button);
-</script>
+</script> -->
 <!-- Bootstrap 3.3.7 -->
-<script src="{{url('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- <script src="{{url('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script> -->
 <!-- Morris.js charts -->
 <script src="{{url('bower_components/raphael/raphael.min.js')}}"></script>
 <script src="{{url('bower_components/morris.js/morris.min.js')}}"></script>
