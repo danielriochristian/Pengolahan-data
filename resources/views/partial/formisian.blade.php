@@ -49,10 +49,45 @@
             </thead>
           </table>
 
+          <div id="myModal"class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
 
-    </div>
-  </div>
-  </div>
+            {{-- Form Delete Post --}}
+            <div class="deleteContent">
+            Are You sure want to delete <span class="title"></span>?
+            <span class="hidden id"></span>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+
+            <button type="button" class="btn actionBtn btn-sm" data-dismiss="modal">
+            <span id="footer_action_button" class="glyphicon"></span>
+            </button>
+
+            <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">
+            <span class="glyphicon glyphicon"></span>close
+            </button>
+
+            </div>
+            </div>
+            </div>
+          </div>
+            </div>
+              </div>
+                </div>
+                  
+
+
+
+
+
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript">
@@ -80,5 +115,41 @@
         ]
     });
     });
+    // form Delete function
+    $(document).on('click', '.delete-modal', function() {
+    $('#footer_action_button').text(" Delete");
+    $('#footer_action_button').removeClass('glyphicon-check');
+    $('#footer_action_button').addClass('glyphicon-trash');
+    $('.actionBtn').removeClass('btn-success');
+    $('.actionBtn').addClass('btn-danger');
+    $('.actionBtn').addClass('delete');
+    $('.modal-title').text('Delete Post');
+    $('.id').text($(this).data('id'));
+    $('.deleteContent').show();
+    $('.form-horizontal').hide();
+    $('.name').html($(this).data('name'));
+    $('#myModal').modal('show');
+    });
+
+    $('.modal-footer').on('click', '.delete', function(){
+      $.ajax({
+        type: 'POST',
+        url: 'deleteForm',
+        data: {
+          "_token": "{{ csrf_token() }}",
+          'id': $('.id').text()
+        },
+        success: function (data, status) {
+                  $('.datatable').DataTable().ajax.reload(null, false);
+              },
+              error: function (request, status, error) {
+                  console.log($("#id").val());
+                  console.log(request.responseJSON);
+                  $.each(request.responseJSON.errors, function( index, value ) {
+                    alert( value );
+                  });
+              }
+          });
+      });
     </script>
   @endsection

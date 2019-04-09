@@ -46,9 +46,20 @@
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
     <label>No Urut</label>
-      <p><input type="text" name="no_urut"class="form-control" placeholder="012313"></p>
+    <?php
+    $ceknourut = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+    if ($ceknourut == null){
+      ?>
+    <p><input type="text" name="no_urut" class="form-control" value="000001" disabled></p>
+  <?php }
+  else{
+    $nourut = $ceknourut + 1;
+    echo '<p><input type="text" name="no_urut"class="form-control" value="'.$nourut.'" disabled></p>';
+  }
+  ?>
 
     <label>No Ujian</label>
+    
       <p><input type="text" name="no_ujian"class="form-control" placeholder="AH12311"></p>
 
     <label>Nama Lengkap</label>

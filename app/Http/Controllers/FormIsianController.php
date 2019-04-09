@@ -137,16 +137,19 @@ class FormIsianController extends Controller
 // var_dump($manage);die();
         // $manage->save();
     return redirect('formisian')->with('message','data berhasil ditambahkan!!');
-
+}
+    public function deleteForm(request $request){
+    $manage = Mhs::find ($request->id)->delete();
+    return response()->json();
     }
+
     public function mhstb(){
         return DataTables::of(Mhs::query())
         ->addColumn('action', function ($datatb) {
             return
             '<a href="formisian/'.$datatb->id.'/edit"> <button class="edit-modal btn btn-xs btn-info" type="submit"> Edit </button> </a>'
-
              .'<div style="padding-top:10px"></div>'
-            .'<button class="delete-modal btn btn-xs btn-danger" type="submit"><i class="fa fa-trash"></i> Delete</button>';
+            .'<button data-id="'.$datatb->id.'" class="delete-modal btn btn-xs btn-danger" type="submit"><i class="fa fa-trash"></i> Delete</button>';
         })
         ->make(true);
     }

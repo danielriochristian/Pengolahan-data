@@ -15,7 +15,7 @@ class CreateTableMhs extends Migration
       Schema::create('mhs', function (Blueprint $table) {
           $table->increments('id');
           $table->unsignedInteger('no_urut')->nullable();
-          $table->unsignedInteger('no_ujian');
+          $table->string('no_ujian');
           $table->string('nama_lengkap');
           $table->string('tempat');
           $table->date('tgl_lahir');
