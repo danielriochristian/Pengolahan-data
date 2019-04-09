@@ -15,7 +15,7 @@ class CreateTableMhs extends Migration
       Schema::create('mhs', function (Blueprint $table) {
           $table->increments('id');
           $table->unsignedInteger('no_urut')->nullable();
-          $table->unsignedInteger('no_ujian');
+          $table->string('no_ujian');
           $table->string('nama_lengkap');
           $table->string('tempat');
           $table->date('tgl_lahir');
@@ -24,10 +24,10 @@ class CreateTableMhs extends Migration
           $table->string('no_hp_orangtua',15);
           $table->string('alamat');
           $table->string('nm_jln');
-          $table->string('rt/rw',10);
+          $table->string('rtrw',10);
           $table->string('kelurahan',20);
           $table->string('kecamatan',20);
-          $table->string('kab/kota',20);
+          $table->string('kabkota',20);
           $table->string('kode_pos',10);
           $table->string('email');
           $table->string('status');
