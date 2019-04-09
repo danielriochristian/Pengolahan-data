@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "854521d89c1eafafee1f3b978228a17a",
+    "content-hash": "c7dcf44e9f4a2f51851a6aba4cdc204d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -689,16 +689,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v2.1.3",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9"
+                "reference": "e0a5afcf86aa4511b291584fae9f00c04e76e60c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
-                "reference": "c6ab521e8a5f2a4acc83cb575c4a09733a5e17c9",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/e0a5afcf86aa4511b291584fae9f00c04e76e60c",
+                "reference": "e0a5afcf86aa4511b291584fae9f00c04e76e60c",
                 "shasum": ""
             },
             "require": {
@@ -707,7 +707,7 @@
                 "illuminate/filesystem": "5.0.*|5.1.*|5.2.*",
                 "illuminate/support": "5.0.*|5.1.*|5.2.*",
                 "nesbot/carbon": "~1.0",
-                "php": ">=5.5",
+                "php": ">=5.4",
                 "phpoffice/phpexcel": "1.8.*",
                 "tijsverkoyen/css-to-inline-styles": "~1.5"
             },
@@ -726,7 +726,8 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/Maatwebsite/Excel"
+                    "src/Maatwebsite/Excel",
+                    "tests/TestCase.php"
                 ],
                 "psr-0": {
                     "Maatwebsite\\Excel\\": "src/"
@@ -752,7 +753,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2016-07-09T09:40:10+00:00"
+            "time": "2015-12-10T18:31:14+00:00"
         },
         {
             "name": "markbaker/complex",

@@ -25,6 +25,8 @@ Route::get('mhs/json','FormIsianController@mhstb')->name('mhs/json');
 Route::get('get_report','FormIsianController@export');
 
 
+
+
 //superadmin
 Route::get('user/json','ManageAdminController@admintb')->name('user/json');
 Route::get('admin','ManageAdminController@index');

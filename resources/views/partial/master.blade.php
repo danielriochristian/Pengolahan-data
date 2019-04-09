@@ -89,7 +89,7 @@
       <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
 
     <label>RT/RW</label>
-      <p><input type="text" name="rt"class="form-control" placeholder="02/12"></p>
+      <p><input type="text" name="rtrw"class="form-control" placeholder="02/12"></p>
 
     <label>Kelurahan</label>
       <p><input type="text" name="kelurahan"class="form-control" placeholder="Cinere"></p>
@@ -98,7 +98,7 @@
       <p><input type="text" name="kecamatan"class="form-control" placeholder="Limo"></p>
 
     <label>Kabupaten/Kota</label>
-      <p><input type="text" name="kab"class="form-control" placeholder="Depok"></p>
+      <p><input type="text" name="kabkota"class="form-control" placeholder="Depok"></p>
 
     <label>Kode Pos</label>
       <p><input type="text" name="kode_pos"class="form-control" placeholder="16514"></p>
@@ -113,7 +113,7 @@
       </select></p>
 
     <label>Jurusan SMA/MA/SMK</label>
-      <p><select class="form-control" name="jurursan">
+      <p><select class="form-control" name="jurusan">
         <option>IPA</option>
         <option>IPS</option>
         <option>Bahasa</option>
