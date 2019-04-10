@@ -19,14 +19,14 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class FormIsianController extends Controller
 {
-  public function getRoleAdmin() {
-      $rolesyangberhak = DB::table('roles')->where('id','=','2')->first()->namaRule;
-      return $rolesyangberhak;
-  }
+  // public function getRoleAdmin() {
+  //     $rolesyangberhak = DB::table('roles')->where('id','=','2','1')->first()->namaRule;
+  //     return $rolesyangberhak;
+  // }
   public function __construct()
   {
       $this->middleware('auth');
-      $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
+      // $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
   }
   public function index()
     {
@@ -51,9 +51,8 @@ class FormIsianController extends Controller
     $manage = DB::table('mhs')
     ->join('nilai', 'mhs.id', '=', 'nilai.id_mhs')
     ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
-
-          ->where('mhs.id','=',$id)
-          ->get();
+    ->where('mhs.id','=',$id)
+    ->get();
           // var_dump($manage);die();
       if(!$manage){
           abort(503);
@@ -87,6 +86,7 @@ class FormIsianController extends Controller
         $mhs -> kabkota = $request->kabkota;
         $mhs -> kode_pos = $request->kode_pos;
         $mhs -> jurusan = $request->jurusan;
+        $mhs -> change_by = $cekadmin;
         // dd($mhs);
         $mhs->save();
 
@@ -119,7 +119,7 @@ class FormIsianController extends Controller
         $nilai -> nilai_total = $request->nilai_total;
         $nilai -> rata_rata = $request->rata_rata;
         $nilai -> change_by = $cekadmin;
-        dd($nilai);
+        // dd($nilai);
         $nilai->save();
 
         //smasmk
@@ -144,6 +144,7 @@ class FormIsianController extends Controller
         $sma -> pilihan1 = $request->jurusan1;
         $sma -> pilihan2 = $request->jurusan2;
         $sma -> change_by = $cekadmin;
+        // dd($nilai);
         $sma->save();
 // var_dump($manage);die();
         // $manage->save();
@@ -209,11 +210,18 @@ public function export(){
                 foreach($mhs as $m){
                   foreach($sims as $sim){
                     foreach($sma as $sma){
-                  $data1 = array($m->id, $m->nama_lengkap, $m->tempat,
-                                $sim->id, $sim->mtkxi1, $sim->mtkxi2,
-                                $sma->id, $sma->thn_lulus, $sma->nama_cp);
-                                array_push($arr, $data1);
-
+                      $data1 = array($m->id, $m->no_ujian, $m->nama_lengkap, $m->tempat, $m->tgl_lahir, $m->telp_rumah, $m->no_hp_siswa, $m->no_hp_orangtua, $m->alamat, $m->nm_jln,
+                                    $m->rtrw, $m->kelurahan, $m->kecamatan, $m->kabkota, $m->kode_pos, $m->email,$m->status,$m->jurusan,
+                                    $sim->bingx1, $sim->mtkx2,$sim->fisika_ekonomix1,$sim->biologi_geografix1,$sim->kimia_sosiologix1,
+                                    $sim->bingx2, $sim->mtkx2,$sim->fisika_ekonomix2,$sim->biologi_geografix2,$sim->kimia_sosiologix2,
+                                    $sim->bingxi1,$sim->mtkxi1,$sim->fisika_ekonomixi1,$sim->biologi_geografixi1,$sim->kimia_sosiologixi1,
+                                    $sim->bingxi2,$sim->mtkxi2,$sim->fisika_ekonomixi2,$sim->biologi_geografixi2,$sim->kimia_sosiologixi2,
+                                    $sim->bingxii2,$sim->mtkxii2,$sim->fisika_ekonomixii2,$sim->biologi_geografixii2,$sim->kimia_sosiologixii2,
+                                    $sim->nilai_total,$sim->rata_rata,
+                                    $sm->thn_lulus,$sm->nama_cp,$sm->jabatan_cp,$sm->nohp_cp,$sm->email_cp,$sm->alamat1,$sm->alamat2,$sm->kota_sekolah,$sm->telp_sekolah,
+                                    $sm->fax_sekolah,$sm->nilai_tpa,$sm->nilai_bing,$sm->catatan,$sm->titipandosen,$sm->hubungan,$sm->tgl_seleksi,$sm->shift_ujian,$sm->pilihan1,
+                                    $sm->pilihan2,$sm->upload,$sm->change_by);dd($data1);
+                                    array_push($arr, $data1);
                 }
                 }
               }
@@ -221,11 +229,15 @@ public function export(){
 
                 //set the titles
                 $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array(
-                        'Id', 'Nama Lengkap', 'Tempat Lahir',
-                        'Id', 'MTK', 'MTK',
-                        'Id', 'Tahun Lulus', 'Nama Contact Person'
-                    )
-
+                        'Id','No Ujian','Nama Lengkap','Tempat Lahir','Tanggal Lahir','Telpon Rumah','No Hp Siswa','No HP Orang Tua','Alamat','Nama Jalan','RT/RW',
+                        'Kelurahan','Kecamatan','Kabupaten/Kota','Kode Pos','Email','Status','Jurusan',
+                        'Bahasa Inggris SMT 1', 'Matematika SMT 1', 'Fisika/Ekonomi SMT 1','Biologi/Geografi SMT 1','Kimia/Sosisologi SMT 1',
+                        'Bahasa Inggris SMT 2', 'Matematika SMT 2', 'Fisika/Ekonomi SMT 2','Biologi/Geografi SMT 2','Kimia/Sosisologi SMT 2',
+                        'Bahasa Inggris SMT 3', 'Matematika SMT 3', 'Fisika/Ekonomi SMT 3','Biologi/Geografi SMT 3','Kimia/Sosisologi SMT 3',
+                        'Bahasa Inggris SMT 4', 'Matematika SMT 4', 'Fisika/Ekonomi SMT 4','Biologi/Geografi SMT 4','Kimia/Sosisologi SMT 4',
+                        'Bahasa Inggris SMT 5', 'Matematika SMT 5', 'Fisika/Ekonomi SMT 5','Biologi/Geografi SMT 5','Kimia/Sosisologi SMT 5',
+                        'Tahun Lulus', 'Nama Contact Person','Jabatan CP','No Hp CP','Email CP','Alamat 1','Alamat 2','Kota Sekolah','Telpon Sekolah','Fax Sekolah','Nilai TPA',
+                        'Nilai Bahasa Inggris','Catatan','Titipan Dosen','Hubungan','Tanggal Seleksi','Shift Ujian','Pilihan 1','Pilihan 2','Upload','Change By')
                 );
 
             });

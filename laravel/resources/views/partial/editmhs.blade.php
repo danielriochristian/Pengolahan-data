@@ -41,7 +41,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-    <form id="formReg" action="/formisian/{{ $manage[0]->id }}" method="post">
+    <form id="formReg" action="/isianbeasarmag/formisian/{{ $manage[0]->id }}" method="post">
       <input type="hidden" name="_method" value="put">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="box-body">

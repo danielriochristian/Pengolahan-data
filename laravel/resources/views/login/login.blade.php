@@ -38,7 +38,7 @@
 					</span>
 				</div>
 
-					<form action="/postlogin" method="post" class="login100-form validate-form">
+					<form action="/isianbeasarmag/postlogin" method="post" class="login100-form validate-form">
 						{{ csrf_field() }}
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email</span>

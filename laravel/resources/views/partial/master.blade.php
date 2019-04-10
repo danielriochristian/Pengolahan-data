@@ -35,32 +35,34 @@
   }
   </style>
   <body>
+
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Form Isian</h3>
     </div>
 
-    <form id="regForm"action="/mahasiswa/upload" enctype="multipart/form-data" method="post">
+    <form id="regForm"action="/isianbeasarmag/mahasiswa/upload" enctype="multipart/form-data" method="post">
       {{ csrf_field() }}
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
-    <label>No Urut</label>
-    <?php
-    $ceknourut = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
-    if ($ceknourut == null){
-      ?>
-    <p><input type="text" name="no_urut" class="form-control" value="000001" disabled></p>
-  <?php }
-  else{
-    $nourut = $ceknourut + 1;
-    echo '<p><input type="text" name="no_urut"class="form-control" value="'.$nourut.'" disabled></p>';
+      <?php
+  $hitung = DB::table('mhs')->count();
+  if($hitung > 0){
+    $manage = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+    $no_urut = $manage + 1;
+
+$fzeropadded = sprintf("%06d", $no_urut);
+
+    echo '<p><input type="text" name="no_urut" class="form-control" value="'.$fzeropadded.'" readonly></p>';
+  }else {
+    echo '<p><input type="text" name="no_urut" class="form-control" value="000001" readonly></p>';;
   }
   ?>
 
     <label>No Ujian</label>
-    
-      <p><input type="text" name="no_ujian"class="form-control" placeholder="AH12311"></p>
+
+      <p><input type="text" name="no_ujian"class="form-control" placeholder="D99999/J99999"></p>
 
     <label>Nama Lengkap</label>
       <p><input type="text" name="nama_lengkap" style="text-transform:uppercase" class="form-control" placeholder="Jhon Doe"></p>
@@ -71,7 +73,7 @@
 
 
     <label>Tanggal Lahir</label>
-      <p><input type="date" name="tgl_lahir"class="form-control" placeholder="17 November 1998"></p>
+      <p><input type="date" name="tgl_lahir" class="form-control" placeholder="17 November 1998"></p>
 
     <label>Telpon Rumah</label>
       <p><input type="text" name="telp_rumah"class="form-control" placeholder="02112341"></p>
@@ -83,10 +85,10 @@
       <p><input type="text" name="no_hp_orangtua"class="form-control" placeholder="08787121xxx"></p>
 
     <label>Alamat Rumah Siswa</label>
-      <p><input type="text" name="alamat"style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
+      <p><input type="text" name="alamat" style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
 
     <label>Nama Jalan & No Rumah</label>
-      <p><input type="text" name="nm_jln"class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
+      <p><input type="text" name="nm_jln" style="text-transform:uppercase" class="form-control" placeholder="Jl. Margonda Raya No.100, Pondok Cina"></p>
 
     <label>RT/RW</label>
       <p><input type="text" name="rtrw"class="form-control" placeholder="02/12"></p>
@@ -284,89 +286,88 @@
 
   </div>
 
-<div class="tab">
-    <label>Nama Contact Person *</label>
-    <input type="text" name="nama_cp"class="form-control" >
+  <div class="tab">
+      <label>Nama Contact Person *</label>
+      <input type="text" name="nama_cp"class="form-control" >
 
 
-    <label>Jabatan Contact Person *</label>
-    <input type="text" name="jabatan_cp" class="form-control" >
+      <label>Jabatan Contact Person *</label>
+      <input type="text" name="jabatan_cp" class="form-control" >
 
 
-    <label>No. HP/WA CP *</label>
-    <input type="text" name="nohp_cp" class="form-control" >
+      <label>No. HP/WA CP *</label>
+      <input type="text" name="nohp_cp" class="form-control" >
 
 
-    <label>Email CP </label>
-    <input type="text" name="email_cp"class="form-control" >
+      <label>Email CP </label>
+      <input type="text" name="email_cp"class="form-control" >
 
 
-    <label>Alamat Sekolah1 </label>
-    <input type="text" name="alamat1"class="form-control" >
+      <label>Alamat Sekolah1 </label>
+      <input type="text" name="alamat1"class="form-control" >
 
 
-    <label>Alamat Sekolah2 </label>
-    <input type="text" name="alamat2"class="form-control">
+      <label>Alamat Sekolah2 </label>
+      <input type="text" name="alamat2"class="form-control">
 
 
-    <label>Kota SMA/SMK Berada *</label>
-    <select class="form-control" name="kota_sekolah">
-      <option>Jabodetabek</option>
-      <option>Luar Jabodetabek</option>
-    </select>
+      <label>Kota SMA/SMK Berada *</label>
+      <select class="form-control" name="kota_sekolah">
+        <option>Jabodetabek</option>
+        <option>Luar Jabodetabek</option>
+      </select>
 
 
-    <label>Telpon Sekolah </label>
-    <input type="text" name="telp_sekolah"class="form-control" placeholder="">
+      <label>Telpon Sekolah </label>
+      <input type="text" name="telp_sekolah"class="form-control" placeholder="0217310503">
 
-    <label>Fax Sekolah</label>
-    <input type="text" name="fax_sekolah" class="form-control" placeholder="">
+      <label>Fax Sekolah</label>
+      <input type="text" name="fax_sekolah" class="form-control" placeholder="0248440553">
 
-    <label>Nilai TPA</label>
-    <input type="text" name="nilai_tpa" class="form-control" placeholder="">
+      <label>Nilai TPA</label>
+      <input type="text" name="nilai_tpa" class="form-control" placeholder="95">
 
-    <label>Nilai Bahasa Inggris </label>
-    <input type="text" name="nilai_bing"class="form-control" placeholder="">
+      <label>Nilai Bahasa Inggris </label>
+      <input type="text" name="nilai_bing"class="form-control" placeholder="90">
 
-    <label>Catatan</label>
-    <input type="text" name="catatan"class="form-control" placeholder="">
+      <label>Catatan</label>
+      <input type="text" name="catatan"class="form-control" placeholder="Berprestasi">
 
-    <label>Titipan dari Dosen/Staff</label>
-    <input type="text" name="titipandosen"class="form-control" placeholder="">
+      <label>Titipan dari Dosen/Staff</label>
+      <input type="text" name="titipandosen"class="form-control" placeholder="Ibu/Bapak">
 
-    <label>Hubungan dengan Penitip </label>
-    <input type="text" name="hubungan"class="form-control" placeholder="">
+      <label>Hubungan dengan Penitip </label>
+      <input type="text" name="hubungan"class="form-control" placeholder="Anak/Sepupu">
 
-    <label>Tanggal Seleksi </label>
-    <input type="date" name="tgl_seleksi" class="form-control" placeholder="">
+      <label>Tanggal Seleksi </label>
+      <input type="date" name="tgl_seleksi" class="form-control" placeholder="DD-MM-YYYY">
 
-    <label>Shift Ujian Seleksi</label>
-    <input type="text" name="shift_ujian"class="form-control" placeholder="">
+      <label>Shift Ujian Seleksi</label>
+      <input type="text" name="shift_ujian"class="form-control" placeholder="1/2">
 
-    <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
+      <h4 class="box-title">Mengajukan Beasiswa Penuh UG</h4>
 
-    <label>Pilihan 1</label>
-    <select name="pilihan1" id="jurusan" class="form-control">
-      @foreach ($jurusan as $jur)
-        <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
-      @endforeach
-    </select>
-
-
-    <label>Pilihan 2</label>
-    <select name="pilihan2" id="jurusan" class="form-control">
-      @foreach ($jurusan as $jur)
-        <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
-      @endforeach
-    </select>
-
-    <label for="file">File:</label>
-    <input type="file" class="form-control-file" id="tes" name="tes">
+      <label>Pilihan 1</label>
+      <select name="pilihan1" id="jurusan" class="form-control">
+        @foreach ($jurusan as $jur)
+          <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
+        @endforeach
+      </select>
 
 
+      <label>Pilihan 2(tidak boleh sama dengan Pilihan 1)</label>
+      <select name="pilihan2" id="jurusan" class="form-control">
+        @foreach ($jurusan as $jur)
+          <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
+        @endforeach
+      </select>
 
-    </div>
+      <label for="file">File:</label>
+      <input type="file" class="form-control-file" id="tes" name="tes">
 
+
+
+      </div>
 {{--
     <div style="overflow:auto;">
       <div style="float:right;">

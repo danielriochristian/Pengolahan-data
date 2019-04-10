@@ -40,6 +40,8 @@
 
 
 
+
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -52,7 +54,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">Admin</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b></span>
+      <span class="logo-lg"><b>Super Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -74,7 +76,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
 
-                <form action="/logout" method="post">
+                <form action="/isianbeasarmag/logout" method="post">
                 {{ csrf_field() }}
                 <div align="center">
                   <button type="submit" class="btn btn-danger btn-flat" name="logout">Sign Out</button>
@@ -95,19 +97,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="dashboard"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/mahasiswa"><i class="fa fa-circle-o"></i>Mahasiswa</a></li>
-              <li><a href="/formisian"><i class="fa fa-circle-o"></i>List Form</a></li>
-          </ul>
+        <li><a href="admin"><i class="fa fa-users"></i> <span>Manage User</span></a></li>
+        <li><a href="jurusan"><i class="fa fa-pencil-square-o"></i> <span>Manage Jurusan</span></a></li>
 
-        </li>
+      </ul>
     </section>
 
   </aside>
@@ -128,11 +121,9 @@
 
     <!-- Main content -->
     <section class="content">
-      @yield('master')
+      @yield('admin')
+      @yield('jurusan')
       @yield('dashboard')
-      @yield('editmhs')
-      @yield('formisian')
-
 
       <!-- /.row (main row) -->
 
@@ -143,22 +134,21 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-
+      <b>Version</b> 2.4.0
     </div>
-    <strong>Gunadarma University Computing Center</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
 
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<!-- <script src="{{url('bower_components/jquery/dist/jquery.min.js')}}"></script> -->
 <!-- jQuery UI 1.11.4 -->
 <!-- <script src="{{url('bower_components/jquery-ui/jquery-ui.min.js')}}"></script> -->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- <script>
+<script>
   $.widget.bridge('uibutton', $.ui.button);
-</script> -->
+</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{url('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
