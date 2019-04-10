@@ -14,15 +14,15 @@ use App\Jurusan;
 class JurusanController extends Controller
 {
 
-    // public function getRoleJurusan() {
-    //     $rolesyangberhak = DB::table('roles')->where('id','=','1')->get()->first()->namaRule;
-    //     return $rolesyangberhak;
-    // }
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    //     $this->middleware('rule:'.$this->getRoleJurusan().',nothingelse');
-    // }
+    public function getRoleJurusan() {
+        $rolesyangberhak = DB::table('roles')->where('id','=','1')->first()->namaRule;
+        return $rolesyangberhak;
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('rule:'.$this->getRoleJurusan().',nothingelse');
+    }
     public function index(){
       $manage = Jurusan::paginate(4);
         return view('partial.Jurusan', compact('manage'));

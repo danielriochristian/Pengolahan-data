@@ -19,6 +19,15 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class FormIsianController extends Controller
 {
+  public function getRoleAdmin() {
+      $rolesyangberhak = DB::table('roles')->where('id','=','2')->first()->namaRule;
+      return $rolesyangberhak;
+  }
+  public function __construct()
+  {
+      $this->middleware('auth');
+      $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
+  }
   public function index()
     {
       $manage = DB::table('mhs')
@@ -163,14 +172,64 @@ class FormIsianController extends Controller
     //   return view('partial.export')->with(compact('manage'));
     // }
 
-    public function export(){
-      $items = Mhs::all();
-      // $nilai = nilai::all();
-      // $smasmk = Smasmk::all();
-      Excel::create('items', function($excel) use($items) {
-          $excel->sheet('ExportFile', function($sheet) use($items) {
-              $sheet->fromArray($items);
-          });
-      })->export('xls');
-}
+//     public function export(){
+//       // $items = Mhs::all();
+//       $items = DB::table('mhs')
+//       ->join('nilai', 'mhs.id', '=', 'nilai.id_mhs')
+//       ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
+//       ->get();
+//
+//       var_dump($items); die();
+//       // $nilai = nilai::all();
+//       // $smasmk = Smasmk::all();
+//       Excel::create('items', function($excel) use($items) {
+//           $excel->sheet('ExportFile', function($sheet) use($items) {
+//               $sheet->fromArray($items);
+//           });
+//       })->export('xls');
+// }
+
+public function export(){
+  Excel::create('records', function($excel) {
+
+            $excel->sheet('Sheet1', function($sheet) {
+                $mhs = Mhs::all();
+                $sims = Nilai::all();
+                $sma = Smasmk::all();
+                $arr =array();
+                // foreach($mhs as $employee) {
+                //     foreach($employee->sims as $sim){
+                //         $data1 =  array($employee->id, $employee->nama_lengkap, $employee->tempat,
+                //             $sim->id, $sim->mtkxi1, $sim->mtkxi2);
+                //             dd($data);
+                //         array_push($arr, $data);
+                //     }
+                // }
+                foreach($mhs as $m){
+                  foreach($sims as $sim){
+                    foreach($sma as $sma){
+                  $data1 = array($m->id, $m->nama_lengkap, $m->tempat,
+                                $sim->id, $sim->mtkxi1, $sim->mtkxi2,
+                                $sma->id, $sma->thn_lulus, $sma->nama_cp);
+                                array_push($arr, $data1);
+
+                }
+                }
+              }
+
+
+                //set the titles
+                $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array(
+                        'Id', 'Nama Lengkap', 'Tempat Lahir',
+                        'Id', 'MTK', 'MTK',
+                        'Id', 'Tahun Lulus', 'Nama Contact Person'
+                    )
+
+                );
+
+            });
+
+        })->export('xls');
+    }
+
 }

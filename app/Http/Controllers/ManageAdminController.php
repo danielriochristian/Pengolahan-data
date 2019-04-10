@@ -15,15 +15,15 @@ use App\Role;
 class ManageAdminController extends Controller
 {
 
-    // public function getRoleAdmin() {
-    //     $rolesyangberhak = DB::table('roles')->where('id','=','1')->get()->first()->namaRule;
-    //     return $rolesyangberhak;
-    // }
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    //     $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
-    // }
+    public function getRoleAdmin() {
+        $rolesyangberhak = DB::table('roles')->where('id','=','1')->first()->namaRule;
+        return $rolesyangberhak;
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
+    }
     public function index(){
       $manage = Admin::paginate(4);
         return view('partial.manageadmin', compact('manage'));

@@ -12,11 +12,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class MahasiswaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  public function getRoleAdmin() {
+      $rolesyangberhak = DB::table('roles')->where('id','=','2')->first()->namaRule;
+      return $rolesyangberhak;
+  }
+  public function __construct()
+  {
+      $this->middleware('auth');
+      $this->middleware('rule:'.$this->getRoleAdmin().',nothingelse');
+  }
     public function index()
     {
         return view ('partial.master');
