@@ -50,7 +50,7 @@
 
     <label>No Urut</label>
         <p><input type="text" name="no_urut" class="form-control" value="{{ $manage[0]-> no_urut}}" disabled></p>
-      
+
 
     <label>No Ujian</label>
       <p><input type="text" name="no_ujian" class="form-control" value="{{ $manage[0]-> no_ujian}}"></p>
@@ -265,12 +265,11 @@
 
 
     <label>Total Nilai 5 semester</label>
-    <!-- <input id="total" type="text" class="form-control" value="{{$manage[0] -> nilai_total}}"> -->
-    <output id="total" type="text" class="form-control" value="{{$manage[0] -> nilai_total}}"></output>
+    <input id="Total" name="nilai_total" type="text" class="form-control" value="{{$manage[0] -> nilai_total}}" readonly>
 
 
     <label>Rata - rata</label>
-    <output id="rerata" type="text" class="form-control" value="{{$manage[0] -> rata_rata}}"></output>
+    <input id="Rerata" name="rata_rata" type="text" class="form-control"  value="{{$manage[0] -> rata_rata}}" readonly>
 
 
 
@@ -476,9 +475,9 @@
   parseFloat(bhsingxi1) + parseFloat(mtkxi1) + parseFloat(fisekxi1) + parseFloat(bigeoxi1) + parseFloat(kimsoxi1) +
   parseFloat(bhsingxi2) + parseFloat(mtkxi2) + parseFloat(fisekxi2) + parseFloat(bigeoxi2) + parseFloat(kimsoxi2) +
   parseFloat(bhsingxii1) + parseFloat(mtkxii1) + parseFloat(fisekxii1) + parseFloat(bigeoxii1) + parseFloat(kimsoxii1);
+  $('#Total').val(total);
   var rerata = parseFloat(total)/25;
-  document.getElementById('total').innerHTML = total;
-  document.getElementById('rerata').innerHTML = rerata;
+  $('#Rerata').val(rerata);
 }
   </script>
 

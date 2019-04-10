@@ -87,38 +87,39 @@ class FormIsianController extends Controller
         $mhs -> kabkota = $request->kabkota;
         $mhs -> kode_pos = $request->kode_pos;
         $mhs -> jurusan = $request->jurusan;
-        dd($mhs);
+        // dd($mhs);
         $mhs->save();
 
         $nilai = Nilai::where('id_mhs',$manage[0]->id)->first();
         // dd($nilai-> bingx1);
         //kelas 10 smt 1
-        $nilai -> bingx1 = $request->bhsingx1;
+        $nilai -> bingx1 = $request->bingx1;
         $nilai -> mtkx1 = $request->mtkx1;
-        $nilai -> fisika_ekonomix1 = $request->fisekx1;
-        $nilai -> biologi_geografix1 = $request->bigeox1;
-        $nilai -> kimia_sosiologix1 = $request->kimsox1;
+        $nilai -> fisika_ekonomix1 = $request->fisika_ekonomix1;
+        $nilai -> biologi_geografix1 = $request->biologi_geografix1;
+        $nilai -> kimia_sosiologix1 = $request->kimia_sosiologix1;
         //kelas 10 smt 2
-        $nilai -> bingx2 = $request->bhsingx2;
+        $nilai -> bingx2 = $request->bingx2;
         $nilai -> mtkx2 = $request->mtkx2;
-        $nilai -> fisika_ekonomix2 = $request->fisekx2;
-        $nilai -> biologi_geografix2 = $request->bigeox2;
-        $nilai -> kimia_sosiologix2 = $request->kimsox2;
+        $nilai -> fisika_ekonomix2 = $request->fisika_ekonomix2;
+        $nilai -> biologi_geografix2 = $request->biologi_geografix2;
+        $nilai -> kimia_sosiologix2 = $request->kimia_sosiologix2;
         //kelas 11 smt 1
-        $nilai -> bingxi2 = $request->bhsingxi1;
-        $nilai -> mtkxi2 = $request->mtkxi1;
-        $nilai -> fisika_ekonomixi2 = $request->fisekxi1;
-        $nilai -> biologi_geografixi2 = $request->bigeoxi1;
-        $nilai -> kimia_sosiologixi2 = $request->kimsoxi1;
+        $nilai -> bingxi2 = $request->bingxi2;
+        $nilai -> mtkxi2 = $request->mtkxi2;
+        $nilai -> fisika_ekonomixi2 = $request->fisika_ekonomixi2;
+        $nilai -> biologi_geografixi2 = $request->biologi_geografixi2;
+        $nilai -> kimia_sosiologixi2 = $request->kimia_sosiologixi2;
         //kelas 12 smt 1
-        $nilai -> bingxii2 = $request->bhsingxii2;
+        $nilai -> bingxii2 = $request->bingxii2;
         $nilai -> mtkxii2 = $request->mtkxii2;
-        $nilai -> fisika_ekonomixii2 = $request->fisekxii2;
-        $nilai -> biologi_geografixii2 = $request->bigeoxii2;
-        $nilai -> kimia_sosiologixii2 = $request->kimsoxii2;
+        $nilai -> fisika_ekonomixii2 = $request->fisika_ekonomixii2;
+        $nilai -> biologi_geografixii2 = $request->biologi_geografixii2;
+        $nilai -> kimia_sosiologixii2 = $request->kimia_sosiologixii2;
         $nilai -> nilai_total = $request->nilai_total;
         $nilai -> rata_rata = $request->rata_rata;
         $nilai -> change_by = $cekadmin;
+        dd($nilai);
         $nilai->save();
 
         //smasmk
