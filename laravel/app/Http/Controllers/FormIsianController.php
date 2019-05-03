@@ -69,6 +69,7 @@ class FormIsianController extends Controller
         ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
         ->where('mhs.id','=',$id)
         ->get();
+        // dd($manage);
         $mhs = Mhs::find($manage[0]->id);
         $mhs -> no_urut = $manage[0]->no_urut;
         $mhs -> no_ujian = $manage[0]->no_ujian;
@@ -105,6 +106,12 @@ class FormIsianController extends Controller
         $nilai -> biologi_geografix2 = $request->biologi_geografix2;
         $nilai -> kimia_sosiologix2 = $request->kimia_sosiologix2;
         //kelas 11 smt 1
+        $nilai -> bingxi1 = $request->bingxi1;
+        $nilai -> mtkxi1 = $request->mtkxi1;
+        $nilai -> fisika_ekonomixi1 = $request->fisika_ekonomixi1;
+        $nilai -> biologi_geografixi1 = $request->biologi_geografixi1;
+        $nilai -> kimia_sosiologixi1 = $request->kimia_sosiologixi1;
+        //kelas 11 smt 1
         $nilai -> bingxi2 = $request->bingxi2;
         $nilai -> mtkxi2 = $request->mtkxi2;
         $nilai -> fisika_ekonomixi2 = $request->fisika_ekonomixi2;
@@ -124,6 +131,16 @@ class FormIsianController extends Controller
 
         //smasmk
         $sma = Smasmk::where('id_mhs',$manage[0]->id)->first();
+        $namafile = $request->file('tes')->getClientOriginalName();
+        $lokasifileskr = '/upload/'.$namafile;
+        $destinasi = public_path('/upload');
+        $proses = $request->file('tes')->move($destinasi,$namafile);
+
+        $namafile2 = $request->file('tes2')->getClientOriginalName();
+        $lokasifileskr2 = '/upload/'.$namafile2;
+        $destinasi2 = public_path('/upload');
+        $proses2 = $request->file('tes2')->move($destinasi2,$namafile2);
+
         $sma -> thn_lulus = $request->thn_lulus;
         $sma -> nama_cp = $request->nama_cp;
         $sma -> jabatan_cp = $request->jabatan_cp;
@@ -143,12 +160,20 @@ class FormIsianController extends Controller
         $sma -> shift_ujian = $request->shift_ujian;
         $sma -> pilihan1 = $request->jurusan1;
         $sma -> pilihan2 = $request->jurusan2;
+        $sma -> upload = $lokasifileskr;
+        $sma -> upload2 = $lokasifileskr2;
         $sma -> change_by = $cekadmin;
-        // dd($nilai);
-        $sma->save();
+        
+        $sma -> save();
+
+
+
+
 // var_dump($manage);die();
         // $manage->save();
+
     return redirect('formisian')->with('message','data berhasil ditambahkan!!');
+
 }
     public function deleteForm(request $request){
     $manage = Mhs::find ($request->id)->delete();
@@ -165,31 +190,7 @@ class FormIsianController extends Controller
         })
         ->make(true);
     }
-    // public function export(){
-    //   $manage = DB::table('mhs')
-    //   ->join('nilai', 'mhs.id', '=', 'nilai.id_mhs')
-    //   ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
-    //   ->get();
-    //   // dd($manage);
-    //   return view('partial.export')->with(compact('manage'));
-    // }
 
-//     public function export(){
-//       // $items = Mhs::all();
-//       $items = DB::table('mhs')
-//       ->join('nilai', 'mhs.id', '=', 'nilai.id_mhs')
-//       ->join('smasmk', 'mhs.id', '=', 'smasmk.id_mhs')
-//       ->get();
-//
-//       var_dump($items); die();
-//       // $nilai = nilai::all();
-//       // $smasmk = Smasmk::all();
-//       Excel::create('items', function($excel) use($items) {
-//           $excel->sheet('ExportFile', function($sheet) use($items) {
-//               $sheet->fromArray($items);
-//           });
-//       })->export('xls');
-// }
 
 public function export(){
   Excel::create('records', function($excel) {
@@ -209,7 +210,7 @@ public function export(){
                 // }
                 foreach($mhs as $m){
                   foreach($sims as $sim){
-                    foreach($sma as $sma){
+                    foreach($sma as $sm){
                       $data1 = array($m->id, $m->no_ujian, $m->nama_lengkap, $m->tempat, $m->tgl_lahir, $m->telp_rumah, $m->no_hp_siswa, $m->no_hp_orangtua, $m->alamat, $m->nm_jln,
                                     $m->rtrw, $m->kelurahan, $m->kecamatan, $m->kabkota, $m->kode_pos, $m->email,$m->status,$m->jurusan,
                                     $sim->bingx1, $sim->mtkx2,$sim->fisika_ekonomix1,$sim->biologi_geografix1,$sim->kimia_sosiologix1,
@@ -220,7 +221,7 @@ public function export(){
                                     $sim->nilai_total,$sim->rata_rata,
                                     $sm->thn_lulus,$sm->nama_cp,$sm->jabatan_cp,$sm->nohp_cp,$sm->email_cp,$sm->alamat1,$sm->alamat2,$sm->kota_sekolah,$sm->telp_sekolah,
                                     $sm->fax_sekolah,$sm->nilai_tpa,$sm->nilai_bing,$sm->catatan,$sm->titipandosen,$sm->hubungan,$sm->tgl_seleksi,$sm->shift_ujian,$sm->pilihan1,
-                                    $sm->pilihan2,$sm->upload,$sm->change_by);dd($data1);
+                                    $sm->pilihan2,$sm->upload,$sm->change_by);
                                     array_push($arr, $data1);
                 }
                 }

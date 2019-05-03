@@ -41,7 +41,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Edit Isian</h3>
     </div>
-    <form id="formReg" action="/isianbeasarmag/formisian/{{ $manage[0]->id }}" method="post">
+    <form id="formReg" action="/isianbeasarmag/formisian/{{ $manage[0]->id }}" enctype="multipart/form-data" method="post">
       <input type="hidden" name="_method" value="put">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="box-body">
@@ -356,6 +356,20 @@
         <option value="{{$jur -> id}}">{{$jur -> nama_jurusan}}</option>
       @endforeach
     </select>
+
+    <label> Hasil </label>
+    <select name="hasil" class="form-control">
+      <option value="LULUS"> LULUS </option>
+      <option value="PMDK"></option>
+    </select>
+
+    <label for="file">File Rekomendasi</label>
+    <input type="file" class="form-control-file" id="tes" name="tes">
+
+    <label for="file">File Bukti Bayar</label>
+    <input type="file" class="form-control-file" id="tes" name="tes2">
+
+
 
     </div>
 

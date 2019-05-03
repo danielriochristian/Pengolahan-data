@@ -25,25 +25,11 @@ class MahasiswaController extends Controller
   }
     public function index()
     {
-        return view ('partial.master');
+        $tes = DB::table('jurusan')->where('status','=','1')->get();
+        return view ('partial.master')->with(compact('tes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       // $mhs = Mhs::All();
@@ -93,7 +79,9 @@ class MahasiswaController extends Controller
        'change_by' => $cekadmin
 	     ]);
 
-       DB::table('nilai')->insert([
+       $id_mhs = DB::table('mhs')->orderBy('id', 'desc')->first()->id;
+       $nilai = DB::table('nilai')->insert([
+       'id_mhs' => $id_mhs,
 		   'bingx1' => $request->bingx1,
 		   'mtkx1' => $request->mtkx1,
 		   'fisika_ekonomix1' => $request->fisika_ekonomix1,
@@ -123,7 +111,19 @@ class MahasiswaController extends Controller
 		   'rata_rata' => $request->rata_rata,
        'change_by' => $cekadmin
 	     ]);
-       DB::table('smasmk')->insert([
+       // dd($nilai);
+       $id_mhs = DB::table('mhs')->orderBy('id', 'desc')->first()->id;
+       $namafile = $request->file('tes')->getClientOriginalName();
+       $lokasifileskr = '/upload/'.$namafile;
+       $destinasi = public_path('/upload');
+       $proses = $request->file('tes')->move($destinasi,$namafile);
+
+       $namafile2 = $request->file('tes2')->getClientOriginalName();
+       $lokasifileskr2 = '/upload/'.$namafile2;
+       $destinasi2 = public_path('/upload');
+       $proses2 = $request->file('tes2')->move($destinasi2,$namafile2);
+       $smasmk = DB::table('smasmk')->insert([
+       'id_mhs' => $id_mhs,
 		   'thn_lulus' => $request->thn_lulus,
 		   'nama_cp' => $request->nama_cp,
 		   'jabatan_cp' => $request->jabatan_cp,
@@ -142,28 +142,16 @@ class MahasiswaController extends Controller
 		   'shift_ujian' => $request->shift_ujian,
        'pilihan1' => $request->pilihan1,
 		   'pilihan2' => $request->pilihan2,
+       'upload' => $lokasifileskr,
+       'upload2' => $lokasifileskr2,
        'change_by' => $cekadmin
 		   ]);
-      if ($request->hasFile('tes')) {
-      $namafile = $request->file('tes')->getClientOriginalName();
-      // $ext = $request->file('tes')->getClientOriginalExtension();
-      $lokasifileskr = '/upload/'.$namafile;
-      //cek jika file sudah ada...
-      // $cekdivisi = Auth::User()->division;
-      // $cekname = Auth::User()->name;
-      // var_dump($cekdivisi);die();
 
-      $destinasi = public_path('/upload');
-      $proses = $request->file('tes')->move($destinasi,$namafile);
 
-      $taxs = new Smasmk;
-      $taxs->upload = $lokasifileskr;
-      $taxs->save();
+
 
       return redirect('/mahasiswa')->with('message','data berhasil ditambahkan!!');
-      }
-        else {
-               return Redirect::back()->withErrors(['anda tidak memiliki akses']);
-             }
+
+
           }
        }
