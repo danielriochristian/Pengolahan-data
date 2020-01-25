@@ -119,7 +119,7 @@ class FormIsianController extends Controller
         $nilai -> nilai_total = $request->nilai_total;
         $nilai -> rata_rata = $request->rata_rata;
         $nilai -> change_by = $cekadmin;
-        dd($nilai);
+        // dd($nilai);
         $nilai->save();
 
         //smasmk
@@ -144,6 +144,7 @@ class FormIsianController extends Controller
         $sma -> pilihan1 = $request->jurusan1;
         $sma -> pilihan2 = $request->jurusan2;
         $sma -> change_by = $cekadmin;
+        // dd($nilai);
         $sma->save();
 // var_dump($manage);die();
         // $manage->save();

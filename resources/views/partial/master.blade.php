@@ -35,6 +35,7 @@
   }
   </style>
   <body>
+
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Form Isian</h3>
@@ -45,21 +46,22 @@
     <div class="box-body">
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
-    <label>No Urut</label>
-    <?php
-    $ceknourut = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
-    if ($ceknourut == null){
-      ?>
-    <p><input type="text" name="no_urut" class="form-control" value="000001" disabled></p>
-  <?php }
-  else{
-    $nourut = $ceknourut + 1;
-    echo '<p><input type="text" name="no_urut"class="form-control" value="'.$nourut.'" disabled></p>';
+      <?php
+  $hitung = DB::table('mhs')->count();
+  if($hitung > 0){
+    $manage = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+    $no_urut = $manage + 1;
+
+$fzeropadded = sprintf("%06d", $no_urut);
+
+    echo '<p><input type="text" name="no_urut" class="form-control" value="'.$fzeropadded.'" readonly></p>';
+  }else {
+    echo '<p><input type="text" name="no_urut" class="form-control" value="000001" readonly></p>';;
   }
   ?>
 
     <label>No Ujian</label>
-    
+
       <p><input type="text" name="no_ujian"class="form-control" placeholder="AH12311"></p>
 
     <label>Nama Lengkap</label>

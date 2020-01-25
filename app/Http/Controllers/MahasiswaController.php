@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use App\Mhs;
+use App\Smasmk;
 use Illuminate\Support\Facades\Redirect;
 
 class MahasiswaController extends Controller
@@ -44,8 +46,29 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+      // $mhs = Mhs::All();
+      // $ceknourut = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+      $hitung = DB::table('mhs')->count();
+      // dd($hitung);
+      // DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+      // dd($mhs);
+      // dd($ceknourut);
+      if($hitung > 0){
+        $manage = DB::table('mhs')->orderBy('no_urut', 'desc')->first()->no_urut;
+        $no_urut = $manage + 1;
+      }else {
+        $no_urut = 000001;
+      }
+
+      // if($ceknourut == null){
+      //   $no_urut = 000001;
+      // }
+      // else{
+      //  $no_urut = $ceknourut + 1;
+      // }
       // insert data ke table pegawai
-	     DB::table('mhs')->insert([
+	      DB::table('mhs')->insert([
+       'no_urut' => $no_urut,
 		   'no_ujian' => $request->no_ujian,
 		   'nama_lengkap' => $request->nama_lengkap,
 		   'tempat' => $request->tempat,
@@ -95,8 +118,7 @@ class MahasiswaController extends Controller
        'kimia_sosiologixii2' => $request->kimia_sosiologixii2,
 		   'nilai_total' => $request->nilai_total,
 		   'rata_rata' => $request->rata_rata
-
-	     ]);
+     ]);
        DB::table('smasmk')->insert([
 		   'thn_lulus' => $request->thn_lulus,
 		   'nama_cp' => $request->nama_cp,
@@ -122,18 +144,15 @@ class MahasiswaController extends Controller
       // $ext = $request->file('tes')->getClientOriginalExtension();
       $lokasifileskr = '/upload/'.$namafile;
       //cek jika file sudah ada...
-      $cekdivisi = Auth::User()->division;
-      $cekname = Auth::User()->name;
+      // $cekdivisi = Auth::User()->division;
+      // $cekname = Auth::User()->name;
       // var_dump($cekdivisi);die();
-      if ($cekdivisi == 'Audit') {
+
       $destinasi = public_path('/upload');
       $proses = $request->file('tes')->move($destinasi,$namafile);
 
       $taxs = new Smasmk;
-      $taxs->title = $request->title;
-      $taxs->uploaded_by = $cekname;
-      $taxs->division = $cekdivisi;
-      $taxs->file = $lokasifileskr;
+      $taxs->upload = $lokasifileskr;
       $taxs->save();
 
       return redirect('/mahasiswa')->with('message','data berhasil ditambahkan!!');
@@ -143,50 +162,3 @@ class MahasiswaController extends Controller
              }
           }
        }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}
